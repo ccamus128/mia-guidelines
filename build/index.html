@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Miami Development Guidelines</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no;">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="lib/prettify/prettify.css">
+    <link rel="stylesheet" href="css/global.css">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="img/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/icons/apple-touch-icon-57-precomposed.png">
+</head>
+<body data-spy="scroll" data-target=".sd-sidenav-outer" data-offset="125" id="top">
+<nav class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <span class="sn-logo"></span>
+            <div class="nav-collapse visible-phone">
+                <ul class="nav sd-topnav-inner">
+                </ul>
+            </div>
+            <span class="last-updated hidden-phone">Last Updated: 10/4/12</span>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</nav>
+<header class="hero">
+    <div class="container hero-inner">
+        <h1>Miami</h1>
+        <h4>Frontend Development Guidelines</h4>
+    </div>
+</header>
+<div class="container page-content">
+<div class="row">
+<div class="span3 sd-sidenav-outer visible-desktop visible-tablet">
+    <ul class="nav nav-list sd-sidenav-inner">
+        <li><a href="#top">Introduction <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#general-guidelines">General Guidelines<i class="icon-chevron-right"></i></a></li>
+        <li><a href="#file-structure">File Structure<i class="icon-chevron-right"></i></a></li>
+        <li><a href="#libraries">Libraries and Tools<i class="icon-chevron-right"></i></a></li>
+        <li><a href="#html-guidelines">HTML <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#mobile-guidelines">Mobile <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#css-guidelines">CSS <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#less-guidelines">LESS <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#js-guidelines">JavaScript <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#jquery-guidelines">jQuery <i class="icon-chevron-right"></i></a></li>
+    </ul>
+</div>
+<div class="span9 section-container">
+<section id="introduction">
+    <header>
+        <h1>Introduction</h1>
+    </header>
+    <p>As a member of the front-end development team you will be expected adhere to the standards and
+        guidelines detailed within this document. Some of the information within relates to how we
+        in the Miami Studio will develop our sites, but most will concern the idea of best practices. A
+        <strong>'Best Practice'</strong> is defined as:</p>
+    <blockquote>'a method or technique that has consistently shown results superior to those achieved with other
+        means'
+    </blockquote>
+    <p>They are not rules. Ultimately each developer is expected
+        to use their best judgement when applying the guidelines listed in this document.</p>
+    <p>The information here has been collected from the experiences we've had with numerous, large‐scale
+        projects, as well as a variety of web resources. These standards will help reduce friction in your
+        workflows by providing a common starting point and will serve as a useful intro for both new hires
+        and contractors.</p>
+</section>
+<!-- Section : General Guidelines -->
+<section id="general-guidelines">
+<header>
+    <h1>General Guidelines</h1>
+</header>
+
+<!-- Sub Heading : Begin -->
+<h3>Client Requirements</h3>
+<p>Occasionally a client may have a requirement or best practice that conflicts with the ones contained in this
+    document. For example, the client would like us to use camel case instead of hyphen delimiters to name
+    css classes. It's times like these when the old saying <em>"The client is always right"</em> comes into play.
+    Unless you feel that the request could jeopardize the delivery of the project any client requirements
+    take precedence over the ones outlined in this document.</p>
+<p><strong>Always ask for client requirements before you start coding.</strong> In most cases they wont
+    have any, but if they do, you and your team should revise them before you start coding and make sure
+    they are followed throughout the life of the project.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Version Control</h3>
+<p>All Sapient projects should use source control. We generally have a SVN repository setup through
+    ResultSpace3, some projects may use a different version control system depending on client requirements. All members
+    of a team must have access to version control and are mandated to use it.</p>
+<p><strong><em>Do not begin development without access to a version control repository!</em></strong></p>
+
+<!-- Sub Heading : Begin -->
+<h3>Automation</h3>
+<p>Whether it's compiling LESS files into CSS or linting your JS files automation plays a major role in
+    development here. <a href="http://www.gruntjs.com" target="_blank">Grunt.js</a> is our tool of choice
+    for automation tasks.</p>
+<p>Before any project ends up going on a production server the following tasks should be run on your code :</p>
+<ol>
+    <li>lint js</li>
+    <li>concat js files</li>
+    <li>minify js files</li>
+    <li>compile LESS files to CSS</li>
+    <li>lint css</li>
+    <li>concat css files</li>
+    <li>minify css files</li>
+    <li>lint html</li>
+</ol>
+
+<!-- Sub Heading : Begin -->
+<h3>Including Files</h3>
+<h5>Including CSS</h5>
+<p>For including CSS use <code>&lt;link&gt;</code> and not <code>@import</code> as the standard. This is an important
+    performance consideration.
+    CSS files should always be included in the HEAD of the document. Placing style sheets in the head
+    allows the page to render progressively.</p>
+<p>For more information on CSS please see our <a href="#css-guidelines">CSS Standards</a>.</p>
+<h5>Including JS</h5>
+<p>JS files should always be included near the END of a document, unless there is specific reason for
+    importing them elsewhere. Keep the number of JS files to a minimum, join them whenever possible. Avoid inline‐JS
+    unless you
+    have a good reason to use it.</p>
+<p>For more information on Javascript please see our <a href="#js-guidelines">Javascript Standards</a>.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Don't Repeat Yourself</h3>
+<p>Don't repeat yourself (DRY) when writing code. Try to chunk different operations and processes
+    into separate functions, but don't overdo it. Always think about maintainability and readability.
+    Before copying and pasting code consider creating a variable, a function or a seprate file
+    to be loaded in.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Reducing the Number of HTTP Requests</h3>
+<p>One of the crucial things when it comes to improving performance is reducing the number of HTTP
+    requests. The latency between HTTP requests, and also the limitation in web browsers in regards to
+    how many parallel HTTP requests a web browser can make, vastly affects the loading time of a web page.
+    The reduction of HTTP requests is especially important on mobile platforms.</p>
+
+<h5>Javascript and CSS</h5>
+<p>Files should be concatenated according to usage and relevance. You don't want to unnecessarily load
+    code you won't be using but you also do not want to make multiple HTTP Requests for code that could
+    be merged into one file.</p>
+
+<h5>CSS Sprites</h5>
+<p>CSS Sprites result from the combination of a number of images into the same image file. You then use
+    background-position in the CSS file to control what part of that image will be visible for a certain
+    element. This way, instead of having a number of HTTP requests, there will be just one for a larger image file.</p>
+<p>This practice works best for image elements that repeat across a site.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Responsive Layout Breakpoints</h3>
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Display</th>
+        <th>Portrait</th>
+        <th>Landscape</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Mobile</td>
+        <td>320</td>
+        <td>480</td>
+    </tr>
+    <tr>
+        <td>Small tablet</td>
+        <td>600</td>
+        <td>800</td>
+    </tr>
+    <tr>
+        <td>Tablet</td>
+        <td>768</td>
+        <td>1024</td>
+    </tr>
+    <tr>
+        <td>Desktop</td>
+        <td colspan="2">Above 1024</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3">* Values represent screen width in pixels</td>
+    </tr>
+    </tfoot>
+</table>
+
+<!-- Sub Heading : Begin -->
+<h3>Indentation</h3>
+<p>Code should be indented using spaces rather than tabs.</p>
+<p>Use indentation consistently to enhance the readability of the code. When elements carry over
+    more than one line of code, indent the contents of elements between the start tag and the end
+    tag. This will make it easy to see where the element begins and ends. Also, use indentation to align
+    code at attribute names. Avoid over-nesting HTML. The simpler the markup the better.</p>
+<p>Use four spaces for each level in indentation. Choose a development tool that allows you to convert
+    tabs to spaces so that the indentation will be the same when the source is viewed in
+    different editors or as printed output.</p>
+<h5>HTML Indentation Example</h5>
+<pre>
+&lt;div&gt;
+    &lt;div class="ribbon"&gt;&lt;span class="pitch"&gt;Sport Match&lt;/span&gt;&lt;/div&gt;
+    &lt;h3&gt;TONIGHT&lt;/h3&gt;
+    &lt;div class="content"&gt;
+        &lt;img src="/images/img1.png" alt=""&gt;
+        &lt;div class="info"&gt;
+            &lt;h4 class="fixture"&gt;CITY: &lt;br&gt;
+                Chicago&lt;/h4&gt;
+            &lt;p class="detail"&gt;&lt;strong&gt;Schedule&lt;/strong&gt;&lt;br&gt;
+                Sat 19 Nov 11, 12:45&lt;br&gt;
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="links borderTop"&gt;
+            &lt;ul&gt;
+                &lt;li class="divider"&gt;&lt;a href="#" class="livePlayer"&gt;Listen Live&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="preview.html" class="matchPreview"&gt;Preview&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="divider"&gt;&lt;a href="#" class="smsAlert"&gt;Alerts&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#" class="buyTickets"&gt;Buy Tickets&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<h5>CSS Indentation Example</h5>
+<pre class="lang-css">
+.vehicle {
+    padding-left:180px;
+    color:#fff;
+}
+    .vehicle h1 {
+        font-size:5.5em;
+        line-height:80%;
+        color:#941711;
+    }
+    .vehicle h2 {
+        font-size:2em;
+        color:#4e5860;
+    }
+footer {
+    background-color: #231F20;
+    font-size: 0.79em;
+    margin: 0px auto;
+    max-width: 1600px;
+    min-width: 960px;
+}
+    footer a {
+        padding:10px 20px;
+        color:#ccc;
+    }
+        footer a:hover { color: #fff; }
+</pre>
+<h5>JS Indentation Example</h5>
+<pre>
+return {
+    phrasePost: function( details ) {
+        var self = this;
+        $.ajax({
+            type:"POST",
+            url:"/ww/admin/phrase.php",
+            data:details,
+            success: function( result ){
+                self.phraseResult( result );
+            }
+        });
+    },
+    phraseResult: function( result ) {
+        this.phrases = $.parseJSON( result );
+        if ( this.phrases != null ) {
+            this.renderPhraseArchive();
+        }
+        this.phraseFormClear();
+    }
+}
+</pre>
+
+<!-- Sub Heading : Begin -->
+<h3>Comments</h3>
+<p>Comment often. Well commented code is extremely important. Take time to describe components, how they work,
+    their limitations, and the way they are constructed. Don't leave others in the team guessing as to
+    the purpose of uncommon or non‐obvious code.</p>
+<!-- Sub Heading : Begin -->
+<h3>Grouping code</h3>
+<p>We recommend setting up snippet shortcuts in your editor of choice to create comment blocks to be
+    used to divide up sections of related code. </p>
+
+<h5>HTML</h5>
+<pre>
+&lt;!--
+==================================
+Main Section
+==================================
+--&gt;
+
+&lt;!-- Sub Section
+================================== --&gt;
+</pre>
+<h5>CSS &amp; JS</h5>
+<pre>
+/*
+==================================
+Main Section
+==================================
+*/
+
+/* Sub Section
+================================== */
+</pre>
+<h5>LESS</h5>
+<pre>
+//
+// ==================================
+// Main Section
+// ==================================
+//
+
+// Sub Section
+// ==================================
+</pre>
+<div class="alert alert-info"><strong>Note:</strong> When LESS is output to CSS these comments will not show. In order to conserve your comments in the final CSS use standard CSS comments.</div>
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+<!-- Section : File Structure -->
+<section id="file-structure">
+<header>
+    <h1>File Structure</h1>
+</header>
+<!-- Sub Heading : Begin -->
+<h3>Project Structure</h3>
+
+
+<pre>
+project/
+├── build/
+├── release/
+├── tags/
+│   └── tag-#/
+├── node_modules/
+├── package.json
+└── grunt.js
+</pre>
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Folder/ Filename</th>
+        <th>Purpose</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>build/</td>
+        <td>Contains all source files in their original state.</td>
+    </tr>
+    <tr>
+        <td>release/</td>
+        <td>Contains all files that will be deployed to the final production server. Files in this folder
+            should be minified, concatenated and linted before being moved to this folder.
+        </td>
+    </tr>
+    <tr>
+        <td>tags/</td>
+        <td>Contains the various versions of the project that have been released. Each release is tagged
+            with a version number. Prior to uploading to the production server a 'tag' of the release folder should be
+            stored.
+        </td>
+    </tr>
+    <tr>
+        <td>node_modules/</td>
+        <td>Contains all the node modules being used in the Grunt build. <em>This folder should not be included in
+            source control.</em></td>
+    </tr>
+    <tr>
+        <td>package.json</td>
+        <td>Contains data to be used by Grunt including meta data, paths and plugin dependencies.</td>
+    </tr>
+    <tr>
+        <td>grunt.js</td>
+        <td>This is the Grunt build file, it loads grunt plugins/ tasks and defines task configurations.</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Sub Heading : Begin -->
+<h3>Build Folder Structure</h3>
+<p>We use the following file structure and content, logically grouping common assets and providing both
+    compiled and minified variations. This structure is based off the HTML 5 boilerplate template.</p>
+<pre>
+build/
+  ├── css/
+  │   ├── fonts/
+  │   └── global.css
+  ├── img/
+  │   └── icons/
+  │   └── */
+  ├── js/
+  │   └── */
+  ├── less/
+  │   ├── base.less
+  │   ├── normalize.less
+  │   ├── variables.less
+  │   ├── mixins.less
+  │   └── project.less
+  ├── */
+  └── index.html
+</pre>
+
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Folder/ Filename</th>
+        <th>Purpose</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>css/</td>
+        <td>Contains any css files used within the project.</td>
+    </tr>
+    <tr>
+        <td>fonts/</td>
+        <td>Contains any web fonts used within the project. Do not include any CSS files in this folder.</td>
+    </tr>
+    <tr>
+        <td>global.css</td>
+        <td>Contains styles for global elements as well as any resets that are used throughout the site. Every page in
+            the site should include this file.
+        </td>
+    </tr>
+    <tr>
+        <td>img/</td>
+        <td>Contains images used throughout the site. Create additional folders within this directory as needed.</td>
+    </tr>
+    <tr>
+        <td>js/</td>
+        <td>Contains javascript files used throughout the site. Create additional folders within this directory as
+            needed.
+        </td>
+    </tr>
+    <tr>
+        <td>less/</td>
+        <td>Contains LESS files used to compile stylesheets used throughout the site. For more information
+            on our LESS implementation visit the <a href="#less-guidelines">LESS</a> section.
+        </td>
+    </tr>
+    <tr>
+        <td>index.html</td>
+        <td>Default html file.</td>
+    </tr>
+    </tbody>
+</table>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+<!-- Section : Libraries -->
+<section id="libraries">
+<header>
+    <h1>Libraries and Tools</h1>
+</header>
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Development Libraries &amp; Tools</th>
+        <th>Preferred Option(s)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>General utility/DOM abstraction</td>
+        <td><a href="http://jquery.com/" target="_blank">jQuery</a></td>
+    </tr>
+    <tr>
+        <td>Browser Normalization &amp; Feature Detection</td>
+        <td><a href="http://modernizr.com/" target="_blank">Modernizr</a></td>
+    </tr>
+    <tr>
+        <td>Build Tools</td>
+        <td><a href="http://gruntjs.com" target="_blank">Grunt</a>, <a href="http://jenkins-ci.org/" target="_blank">Jenkins</a>
+        </td>
+    </tr>
+    <tr>
+        <td>Scalable Architecture</td>
+        <td><a href="http://backbonejs.org/" target="_blank">Backbone.js</a>, <a href="http://angularjs.org/"
+                                                                                 target="_blank">AngularJS</a></td>
+    </tr>
+    <tr>
+        <td>Templating</td>
+        <td><a href="http://underscorejs.org/" target="_blank">underscore.js</a>, <a href="http://handlebarsjs.com/"
+                                                                                     target="_blank">Handlebars.js</a>
+        </td>
+    </tr>
+    <tr>
+        <td>CSS Preprocessors</td>
+        <td><a href="http://lesscss.org" target="_blank">LESS</a></td>
+    </tr>
+    <tr>
+        <td>Editors</td>
+        <td><a href="http://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a>, <a
+                href="http://www.sublimetext.com/" target="_blank">Sublime Text</a></td>
+    </tr>
+    </tbody>
+</table>
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Online Tools & Resources</th>
+        <th>Preferred Option(s)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Compatibility Tables</td>
+        <td><a href="http://caniuse.com/">Can I use...</a></td>
+    </tr>
+    <tr>
+        <td>HTML5 Semantics</td>
+        <td><a href="http://html5doctor.com/element-index/">HTML5 Doctor | Element Index</a></td>
+    </tr>
+    <tr>
+        <td>HTML 5 Project Boilerplate</td>
+        <td><a href="http://html5boilerplate.com/" target="_blank">HTML 5 Boilerplate</a></td>
+    </tr>
+    <tr>
+        <td>HTML 5 Mobile Boilerplate</td>
+        <td><a href="http://html5boilerplate.com/mobile/" target="_blank">HTML 5 Boilerplate</a></td>
+    </tr>
+    <tr>
+        <td>Responsive Grid Layout</td>
+        <td><a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>, <a
+                href="http://www.getskeleton.com/" target="_blank">Skeleton</a></td>
+    </tr>
+    <tr>
+        <td>CSS Reset</td>
+        <td><a href="http://necolas.github.com/normalize.css/" target="_blank">normalize.css</a></td>
+    </tr>
+    <tr>
+        <td>Font Face Generator</td>
+        <td><a href="http://www.fontsquirrel.com/fontface/generator" target="_blank">FontSquirrel</a></td>
+    </tr>
+    <tr>
+        <td>CSS Sprite Generator</td>
+        <td><a href="http://spritepad.wearekiss.com/" target="_blank">SpritePad</a></td>
+    </tr>
+    <tr>
+        <td>CSS Gradient Generator</td>
+        <td><a href="http://www.colorzilla.com/gradient-editor/" target="_blank">ColorZilla</a></td>
+    </tr>
+    <tr>
+        <td>HEX to RGBA Converter</td>
+        <td><a href="http://hex2rgba.devoth.com/">hex2rgba</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Sub Heading : Begin -->
+<h3>Choosing a code editor</h3>
+<p>Consider the following features when choosing your code editor:</p>
+<ul class="list-2col">
+    <li>Zen Coding</li>
+    <li>Validation</li>
+    <li>HTML5 Validation</li>
+    <li>Code Completion</li>
+    <li>Live Editing</li>
+    <li>Refactoring</li>
+    <li>Customizable snippets</li>
+    <li>Customizable Project Templates</li>
+    <li>Customizable File Templates</li>
+    <li>Built-in VCS integration</li>
+    <li>Allows the replacement of tabs with spaces</li>
+</ul>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+<!-- Section : HTML Guidelines -->
+<section id="html-guidelines">
+<header>
+    <h1>HTML</h1>
+</header>
+
+<!-- Sub Heading : Begin -->
+<h3>HTML(5)</h3>
+<p>Whenever possible we write HTML5 code, unless there is a very specific need to use XHTML. When you write any HTML, it
+    has to be:</p>
+<ul>
+    <li>Well‐formed and generally valid (You must use a validator!). No funky nesting.</li>
+    <li>Slim ‐ no unnecessary bloating or extra containers around containers around containers.</li>
+    <li>Separated from presentation (CSS) and behavior (JS).</li>
+    <li>Implemented using the right tags otherwise know as semantics.</li>
+</ul>
+
+<!-- Sub Heading : Begin -->
+<h3>Semantics</h3>
+<p>The concept of semantics goes hand in hand with HTML5. Review the PDF included below, it will help you
+    choose what element is most appropriate for your content.</p>
+<a href="img/html5-flowchart.png" target="_blank"><img src="img/html5-flowchart.jpg" alt="HTML5 Flowchart"></a>
+<p>For more information on specific tags and their appropriate use visit <a
+        href="http://html5doctor.com/element-index/">HTML5 Doctor | Element Index</a>.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>The &lt;html&gt; tag</h3>
+<p>The HTML5 Boilerplate uses conditional comments to dynamically assign classes to the <code>&lt;html&gt;</code> tag.
+</p>
+<pre>
+&lt;!--[if lt IE 7]&gt;
+&lt;html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt;
+&lt;html class="no-js lt-ie9 lt-ie8" lang="en"&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;
+&lt;html class="no-js lt-ie9" lang="en"&gt; &lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt; &lt;html class="no-js" lang="en"&gt; &lt;!--&lt;![endif]--&gt;
+</pre>
+
+<!-- Sub Heading : Begin -->
+<h3>The &lt;head&gt; tag</h3>
+<p>The text in these tags is not displayed, but parsable and tells the browsers (or other web services)
+    specific information about the page. Simply, it “explains” the page so a browser can understand it.</p>
+<p>Meta tags, style sheets, page title and occasionally javascripts are found within the <code>&lt;head&gt;</code> tag.
+</p>
+
+<h5>Character Encoding</h5>
+<p>Make sure UTF‐8 is used to encode your files unless you have a specific reason to use something else.
+    Declare it by placing this code in the first line of your head tag.</p>
+<pre>
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+</pre>
+<p>Unless you chose XHTML then you have to use:</p>
+<pre>
+&lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;
+</pre>
+
+<!-- Sub Heading : Begin -->
+<h5>Common Meta Tags</h5>
+<p>For more information on common meta tags <a href="https://www.google.com/search?q=common%20meta%20tags"
+                                               target="_blank">click here</a>.</p>
+
+<h5>Mobile Specific Meta Tags</h5>
+<p>For more information on mobile specific meta tags visit the <a href="#mobile-guidelines">Mobile</a> section.
+
+<h5>Favicon</h5>
+<pre>&lt;link rel="icon" type="image/png" href="img/favicon.png"&gt;</pre>
+<p>If a favicon is not does not exist request that one be created.</p>
+<!-- Sub Heading : Begin -->
+<h3>Available HTML Tags</h3>
+<p>Although some of the elements listed below can be affected using their respective HTML attribute tags it is
+    considered best practice to use CSS styling whenever possible.</p>
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Category</th>
+        <th>Elements</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Structural Elements</td>
+        <td><strong>article</strong>, <strong>aside</strong>, blockquote, body, br, <strong>details</strong>, div,
+            <strong>figcaption</strong>, <strong>figure</strong>, <strong>footer</strong>, h1, h2,
+            h3, h4, h5, h6, head, <strong>header</strong>, <strong>hgroup</strong>, hr, html, <strong>nav</strong>, p,
+            <strong>section</strong>, <strong>summary</strong></td>
+    </tr>
+    <tr>
+        <td>Head Elements</td>
+        <td>base, link, meta, script, style, title</td>
+    </tr>
+    <tr>
+        <td>List Elements</td>
+        <td>dd, dl, dt, li, ol, ul</td>
+    </tr>
+    <tr>
+        <td>Text Formatting Elements</td>
+        <td>a, abbr, address, b, bdo, <strong>bdi</strong>, blink, cite, code, comment, del, dfn, em, i, ins, kbd,
+            <strong>mark</strong>, marquee, <strong>meter</strong>, nobr, noscript, pre, q, samp, span, strong, sub,
+            sup, <strong>time</strong>, tt, var, <strong>wbr</strong></td>
+    </tr>
+    <tr>
+        <td>Form Elements</td>
+        <td>button, <strong>command</strong>, <strong>datalist</strong>, fieldset, form, input, <strong>keygen</strong>,
+            label, legend, optgroup, option, select, textarea
+        </td>
+    </tr>
+    <tr>
+        <td>Image and Media Elements</td>
+        <td>area, <strong>audio</strong>, bgsound, <strong>canvas</strong>, embed, img, map, noembed, object, param,
+            <strong>source</strong>, <strong>track</strong>, <strong>video</strong></td>
+    </tr>
+    <tr>
+        <td>Table Elements</td>
+        <td>caption, col, colgroup, table, tbody, td, tfoot, th, thead, tr</td>
+    </tr>
+    <tr>
+        <td>Frame and Window Elements</td>
+        <td>iframe</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="2">Items highlighted in <strong>green</strong> are HTML5 specific, research the browsers being
+            targeted to make sure those tags are supported.
+        </td>
+    </tr>
+    </tfoot>
+</table>
+<!-- Sub Heading : Begin -->
+<h3>Avoid Deprecated & Nonstandard Elements</h3>
+<p>In general it is best to avoid deprecated or non-standard elements. Our goal is to
+    use the best solutions possible.</p>
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Category</th>
+        <th>Elements</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Deprecated Elements</td>
+        <td>applet, basefont, big, center, dir, font, isindex, menu, plaintext, s, small, u, xmp</td>
+    </tr>
+    <tr>
+        <td>Deprecated with HTML5</td>
+        <td>acronym, big, frame, frameset, noframes, strike, tt</td>
+    </tr>
+    <tr>
+        <td>Proprietary & Nonstandard Elements</td>
+        <td>bgsound, blink, comment, marquee, nobr, noembed, plaintext, wbr</td>
+    </tr>
+    </tbody>
+</table>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+<!-- Section : Mobile Guidelines -->
+<section id="mobile-guidelines">
+<header>
+    <h1>Mobile</h1>
+</header>
+<!-- Sub Heading : Begin -->
+<h3>Meta Tags for Mobile</h3>
+<pre>
+&lt;meta name="format-detection" content="telephone=yes"&gt;
+&lt;meta name="format-detection" content="telephone=no"&gt;
+</pre>
+<p>This tag determines whether or not telephone numbers in the HTML content will appear as hypertext links.
+    The user can click a link with a telephone number to initiate a phone call to that phone number.</p>
+<pre>&lt;meta name="HandheldFriendly"&gt;</pre>
+<p>This tag indicates to the browser that the page has been laid out by the developer to be viewable
+    on a small screen, and that the browser should not attempt any further layout enhancements.
+    While somewhat effective, it does not offer any granular control over the layout width ‐ it’s just a
+    true/false flag.</p>
+
+<h5>viewport</h5>
+<pre>&lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"&gt;</pre>
+<p>Of the meta tags specific to mobile this one is the most important. This meta tag can be used to
+    control how HTML content will appear in mobile browsers.</p>
+<p>Available options include:</p>
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Property</th>
+        <th>Option</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>width</td>
+        <td>
+            width=device‐width<br>
+            width=### <em>( ### is the number of pixels between 200 and 10000 ex. width=980 )</em>
+        </td>
+    </tr>
+    <tr>
+        <td>height</td>
+        <td>
+            height=device‐height<br>
+            height=### <em>( ### is the number of pixels between 223 and 10000 ex. height=980 )</em>
+        </td>
+    </tr>
+    <tr>
+        <td>minimum‐scale</td>
+        <td>minimum‐scale=#.## <em>( #.## is a floating point number between 0.0 and 10.0 ex. minimum‐scale=0.25 )</em>
+        </td>
+    </tr>
+    <tr>
+        <td>maximum‐scale</td>
+        <td>maximum‐scale=#.## <em>( #.## is a floating point number between 0.0 and 10.0 ex. maximum‐scale=1.6 )</em>
+        </td>
+    </tr>
+    <tr>
+        <td>initial‐scale</td>
+        <td>initial‐scale=#.## <em>( #.## is a floating point number between minimum‐scale and maximum‐scale )</em></td>
+    </tr>
+    <tr>
+        <td>user‐scalable</td>
+        <td>user‐scalable=yes <em>( yes by default )</em><br>
+            user‐scalable=no
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Sub Heading : Begin -->
+<h3>Targeting Screen Sizes</h3>
+<p></p>
+<pre>
+&lt;link rel="stylesheet" media="only screen and (max-device-width: 320px)" href="phone.css"&gt;
+&lt;link rel="stylesheet" media="only screen and (min-width: 641px) and (max-width: 800px)" href="ipad.css"&gt;
+</pre>
+
+<!-- Sub Heading : Begin -->
+<h3>Apple specific tags</h3>
+<p>Although these tags originated with Apple others have adopted them as well. Any site targeting mobile
+    specifically should consider including the follow snippets within the 'head' tag of the page.</p>
+<pre>
+&lt;link rel="apple-touch-icon" href="apple-touch-icon.png"&gt;
+&lt;!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" href="apple-touch-iconprecomposed.png"&gt;
+&lt;!-- For first- and second-generation iPad: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touchicon-72x72-precomposed.png"&gt;
+&lt;!-- For iPhone with high-resolution Retina display: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="appletouch-icon-114x114-precomposed.png"&gt;
+&lt;!-- For third-generation iPad with high-resolution Retina display: --&gt;
+&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="appletouch-icon-144x144-precomposed.png"&gt;
+</pre>
+
+<p>This tag sets the icon for a Web Clip. A Web Clip is a link to a web page or content from a web page
+    that has been saved to a device along with an icon on the home screen that can be used to display it.</p>
+
+<h5>apple-touch-startup-image</h5>
+<pre>&lt;link rel="apple-touch-startup-image"&gt;</pre>
+<p>This tag specifies a startup image, which is an image that is displayed while an offline web
+    application is being launched on the mobile device. For the iPhone and iPod Touch, the image must
+    be in portrait orientation 320 pixels wide by 460 pixels high.</p>
+
+<h5>apple-mobile-web-app-capable</h5>
+<pre>
+&lt;meta name="apple-mobile-web-app-capable" content='yes'&gt;
+&lt;meta name="apple-mobile-web-app-capable" content='no'&gt;
+</pre>
+<p>For a mobile app, the apple‐mobile‐web‐app‐capable meta tag determines whether the
+    application runs in web mode, with an address bar and navigation bar, or in full screen mode
+    without them.</p>
+<p>The 'content' attribute will determine if your page will display the address bar at the top and the
+    navigation bar at the bottom of the screen. A value of 'yes' will hide the address and navigation
+    bars, 'no' will show them.</p>
+<h5>apple-mobile-web-app-status-bar-style</h5>
+<pre>
+&lt;meta name="apple-mobile-web-app-status-bar-style" content='default'&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content='black'&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content='black-translucent'&gt;
+</pre>
+<p>This meta tag has no effect unless you first specify full-screen mode as described in
+    'apple-mobile-web-app-capable.'</p>
+<ul>
+    <li><em>default</em> - The status bar color is the normal gray gradient and it does not overlap the HTML content.
+    </li>
+    <li><em>black</em> - The status bar is black and does not overlap the HTML content.</li>
+    <li><em>black-translucent</em> - The status bar is translucent black and overlays a small strip
+        at the top of the HTML content.
+    </li>
+</ul>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+<!-- Section : CSS Guidelines -->
+<section id="css-guidelines">
+<header>
+    <h1>CSS</h1>
+</header>
+
+<!-- Sub Heading : Begin -->
+<h3>How to write good CSS (Selectors)</h3>
+<p>Writing Efficient CSS selectors is a good article to understand why writing efficient CSS selectors is important.
+    Here's a summary:</p>
+<ul>
+    <li>Keep specificity low (that is, don't write html body <code>.wrapper #content a{}</code> when <code>.content
+        a{}</code> will accomplish the same
+    </li>
+    <li>Try to avoid putting unnecessary classes and IDs in your HTML</li>
+    <li>The fewer matches your key selector (the one to the very right hand side of your selector) has, the faster your
+        selector will be overall.
+    </li>
+    <li>Avoid the use of IDs this limits the reusability of your styles and can create maintenance headaches.</li>
+    <li>Avoid the * selector unless you can explain why you MUST use it.</li>
+    <li>Avoid the !important unless you can explain why you MUST use it.</li>
+</ul>
+<p>There is much to be said around how to architect the HTML and subsequently the CSS for a larger site. Here are a few
+    good pointers to keep in mind:</p>
+<ol>
+    <li>
+        <strong>Find patterns in different modules and abstract them out.</strong><br>
+        <p>e.g. Two modules that have bulleted lists in them might inherit from a common class, and be adjusted
+            separately with additional rules.</p>
+    </li>
+    <li>
+        <strong>When you create a module, let it be flexible so it can be used in a different context</strong><br>
+        <p>This goes hand in hand with "keep specificity low". When you write CSS for any module, don't tie it to a
+            specific place (or parent) unless you really have to.</p>
+    </li>
+</ol>
+
+<!-- Sub Heading : Begin -->
+<h3>Selector Efficiency</h3>
+<p>In terms of performance, memorize this list of efficient CSS selectors ‐ ordered from higher to lower efficiency:</p>
+<ol>
+    <li>ID, e.g. <code>#header</code></li>
+    <li>Class, e.g. <code>.promo</code></li>
+    <li>Type, e.g. <code>div</code></li>
+    <li>Adjacent sibling, e.g. <code>h2 + p</code></li>
+    <li>Child, e.g. <code>li > ul</code></li>
+    <li>Descendant, e.g. <code>ul a</code></li>
+    <li>Universal, i.e. <code>*</code></li>
+    <li>Attribute, e.g. <code>input[type="text"]</code></li>
+    <li>Pseudo‐classes/‐elements, e.g. <code>a:hover</code></li>
+</ol>
+
+<!-- Sub Heading : Begin -->
+<h3>Naming Conventions</h3>
+<p>Use clear and thoughtful names for HTML classes. Pick an understandable and consistent naming pattern that makes
+    sense both within HTML files and CSS files.</p>
+<pre class="lang-css bad">
+.s-scr {
+    overflow: auto;
+}
+.cb {
+    background: #000;
+}
+</pre>
+<pre class="lang-css good">
+.is-scrollable {
+    overflow: auto;
+}
+.column-body {
+    background: #000;
+}
+</pre>
+<p>Use names that make sense even if design or usage changes.</p>
+<pre class="lang-css bad">
+.right-red {
+    float: right;
+    color: red;
+}
+</pre>
+<pre class="lang-css good">
+.text-highlight {
+    float: right;
+    color: red;
+}
+</pre>
+
+<!-- Sub Heading : Begin -->
+<h5>Multiline</h5>
+<p>We use multi-line CSS to help with version control and readability.</p>
+<pre class="lang-css good">
+.alternating-list {
+    list-style: none;
+    margin-left: 0;
+    border:1px solid #bfbfbf;
+}
+    .alternating-list > li {
+        padding: 5px;
+        font-size: 8pt;
+    }
+</pre>
+<h5>Hyphen Delimited</h5>
+<p>We use hyphen delimited, lowercase selectors:</p>
+<pre class="lang-css bad">
+.thisIsBad {
+}
+.this_is_also_bad {
+}
+</pre>
+<pre class="lang-css good">
+.this-is-correct {
+}
+</pre>
+<h5>Semi-Colons</h5>
+<p>Always use a trailing semi-colon on the last declaration in a ruleset to avoid any potential confusion
+    and syntax errors over the life of the document.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Formatting</h3>
+<p>The chosen code format must ensure that code:</p>
+<ul>
+    <li>is easy to read</li>
+    <li>is easy to clearly comment</li>
+    <li>minimizes the chance of accidentally introducing errors</li>
+    <li>results in useful diffs and blames.</li>
+</ul>
+<p>To that end the following recommendations are made for CSS formatting:</p>
+<ul>
+    <li>One discrete selector per line in multi‐selector rulesets.</li>
+    <li>A single space before the opening brace of a ruleset.</li>
+    <li>One declaration per line in a declaration block.</li>
+    <li>One level of indentation for each declaration.</li>
+    <li>A single space after the colon of a declaration.</li>
+    <li>Always include a semicolon at the end of the last declaration in a declaration block.</li>
+    <li>Place the closing brace of a ruleset in the same column as the first character of the ruleset.</li>
+    <li>Separate each ruleset by a blank line.</li>
+    <li>Seperating words in a class name or id only with "‐"</li>
+    <li>Rules with various vendor‐prefixes should always be next to each other</li>
+</ul>
+<pre class="lang-css">
+.selector-1,
+.selector-2,
+.selector-3 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    color: #333;
+    background: #fff;
+}
+</pre>
+
+<!-- Sub Heading : Begin -->
+<h3>Declaration order</h3>
+<p>Declarations should be ordered in accordance with a single principle, the team should initial agree
+    to one of the suggested. Preference is for related properties to be grouped together and for
+    structurally important properties (e.g. positioning and box‐model) to be declared prior to
+    typographic, background, and color properties.</p>
+<pre class="lang-css">
+.selector {
+    position: relative;
+    display: block;
+    width: 50%;
+    height: 100px;
+    padding: 10px;
+    border: 0;
+    margin: 10px;
+    font-family: monospace;
+    font-size:1em;
+    color: #fff
+    background: #000;
+}
+</pre>
+<p>Do not sort declarations alphabetically, this approach separates related properties. For
+    example, position offsets are no longer grouped together and box‐model properties can end up
+    spread throughout a declaration block.</p>
+<!-- Sub Heading : Begin -->
+<h3>Exceptions and slight deviations</h3>
+<p>Large blocks of single declarations can use a slightly different, single‐line format. In this case, a
+    space should be included after the opening brace and before the closing brace.</p>
+<pre class="lang-css">
+.selector-1 { width: 10%; }
+.selector-2 { width: 20%; }
+.selector-3 { width: 30%; }
+</pre>
+<p>Long, comma separated property values ‐ such as collections of gradients or shadows ‐ can be
+    arranged across multiple lines in an effort to improve readability and produce more useful diffs.
+    There are various formats that could be used; one example is shown below.</p>
+<pre class="lang-css">
+.selector {
+    box-shadow:
+        1px 1px 1px #000,
+        2px 2px 1px 1px #ccc inset;
+    background-image:
+        linear-gradient(#fff, #ccc),
+        linear-gradient(#f3c, #4ec);
+}
+</pre>
+<!-- Sub Heading : Begin -->
+<h3>Web Fonts</h3>
+<p>When using web fonts check if they are available on <a href="http://www.google.com/webfonts" target="_blank">Google
+    Web Fonts</a>
+    before generating the various formats necessary for the web.</p>
+<p>If your font is not available on Google Web Fonts generate a font-face kit using
+    <a href="http://www.fontsquirrel.com/fontface/generator" target="_blank">FontSquirrel</a>. Place your generated
+    fonts
+    in the <code>css/fonts/</code> folder. Avoid including any additional css files and incorporate the necessary
+    <code>@font-face</code> tags into an existing stylesheet.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Miscellaneous Standards</h3>
+<p>Avoid specifying units for zero‐values, e.g., <code>margin: 0</code></p>
+<p>Use lowercase hex values, e.g., <code>#aaa</code></p>
+<p>Use single or double quotes consistently. Preference is for double quotes, e.g., <code>content: ""</code></p>
+<p>Always quote attribute values in selectors, e.g., <code>input[type="checkout"]</code></p>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+<!-- Section : LESS Guidelines -->
+<section id="less-guidelines">
+<!-- Sub Heading : Begin -->
+<header>
+    <h1>LESS</h1>
+</header>
+<!-- Sub Heading : Begin -->
+<h3>What is LESS?</h3>
+<p>CSS Preprocessors extend CSS with dynamic behavior such as variables, mixins, operations and functions.
+    Our preprocessor of choice is LESS, for more information <a href="http://www.lesscss.org/" target="_blank">click
+        here</a>.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Naming Conventions</h3>
+<p>All applicable CSS naming conventions should be followed in your LESS implementation.</p>
+<p>Use camel case when naming variables:</p>
+<pre>
+@tooltipColor: #fff;
+@tooltipBackground: #000;
+@tooltipArrowWidth: 5px;
+@tooltipArrowColor: @tooltipBackground;
+</pre>
+<!-- Sub Heading : Begin -->
+<h3>File Structure</h3>
+<p>There are five .less files that are included in our default templates:</p>
+<ul>
+    <li>normalize.less</li>
+    <li>variables.less</li>
+    <li>mixins.less</li>
+    <li>base.less</li>
+    <li>project.less</li>
+</ul>
+
+<h5>variables.less</h5>
+<p>All variables to be used within your LESS implementation should be defined in this file.
+    Declarations should be in the following order :</p>
+<ul>
+    <li>Colors</li>
+    <li>Background/ Text Colors</li>
+    <li>Link Colors</li>
+    <li>Typography</li>
+    <li>Project Specific Variables</li>
+</ul>
+
+<pre>
+// -------------------------
+// Variables
+// -------------------------
+
+// Greys
+// -------------------------
+@grey1: darken(#fff, 10%);
+@grey2: darken(@grey1, 10%);
+...
+
+// Accent colors
+// -------------------------
+@blue:  #049cdb;
+@green: #46a546;
+@red: #9d261d;
+...
+
+// Scaffolding
+// -------------------------
+@bodyBackground: @white;
+@textColor: @grey8;
+
+// Links
+// -------------------------
+@linkColor: darken(@red, 10%);
+@linkColorHover: darken(@linkColor, 15%);
+@linkColorVisited: darken(@linkColor, 25%);
+
+// Typography
+// -------------------------
+@sansFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@serifFontFamily: Georgia, "Times New Roman", Times, serif;
+@monoFontFamily: Monaco, Menlo, Consolas, "Courier New", monospace;
+
+@baseFontSize: 14px;
+@baseFontFamily: @sansFontFamily;
+@baseLineHeight: 20px;
+@altFontFamily: @serifFontFamily;
+
+@headingsFontFamily: inherit; // empty to use BS default, @baseFontFamily
+@headingsFontWeight: bold;    // instead of browser default, bold
+@headingsColor: @blue; // empty to use BS default, @textColor
+
+// Project Specific
+// -------------------------
+...
+</pre>
+
+<h5>base.less</h5>
+<p>This file is used to combine various LESS files. It provides should provide common styles and
+    variables that will be used throughout your LESS implementation. Ensure that any styles included
+    within base.less will be used throughout the site. By default base.less looks like this:</p>
+<pre>
+// CSS Reset
+@import "normalize.less"; // Maintain consistency across browsers
+
+// Core variables and mixins
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less";
+</pre>
+<h5>project.less</h5>
+<pre>
+@import "base.less";
+
+// Project specific code
+...
+</pre>
+<p>By using this approach we can determine the order in which our LESS files will be combined.</p>
+<div class="alert alert-info"><strong>Note:</strong> Need to add more information regarding the splitting of files.
+</div>
+
+<!-- Sub Heading : Begin -->
+<h3>Formatting</h3>
+<h5>Mixins</h5>
+<p>Group mixins toward the top of your style declarations. This makes it easy for other developers to
+    see what mixins are being applied. It also allows for values to be overridden if necessary.</p>
+<pre class="lang-css">
+section {
+    .rounded-border(5px);
+
+    border-color:#ddd;
+}
+.rounded-border(@radius) {
+  border: 1px solid #999;
+  -webkit-border-radius: @radius @radius @radius @radius;
+  -moz-border-radius: @radius @radius @radius @radius;
+  border-radius: @radius @radius @radius @radius;
+}
+</pre>
+
+<h5>Helpful Built-in LESS functions</h5>
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Function</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>e(str)</td>
+        <td>returns a string without the surrounding quotes. See String Unquoting</td>
+    </tr>
+    <tr>
+        <td>floor(number)</td>
+        <td>returns the floor of a numerical input</td>
+    </tr>
+    <tr>
+        <td>round(number)</td>
+        <td>returns the rounded value of numerical input</td>
+    </tr>
+    <tr>
+        <td>lighten(color, percent)</td>
+        <td>lightens color by percent and returns it</td>
+    </tr>
+    <tr>
+        <td>darken(color, percent)</td>
+        <td>darkens color by percent and returns it</td>
+    </tr>
+    <tr>
+        <td>saturate(color, percent)</td>
+        <td>saturates color by percent and returns it</td>
+    </tr>
+    <tr>
+        <td>desaturate(color, percent)</td>
+        <td>desaturates color by percent and returns it</td>
+    </tr>
+    <tr>
+        <td>fadein(color, percent)</td>
+        <td>makes color less transparent by percent and returns it</td>
+    </tr>
+    <tr>
+        <td>fadeout(color, percent)</td>
+        <td>makes color more transparent by percent and returns it</td>
+    </tr>
+    <tr>
+        <td>spin(color, amount)</td>
+        <td>returns a color with amount degrees added to hue</td>
+    </tr>
+    <tr>
+        <td>fade(color, amount)</td>
+        <td>returns a color with the alpha set to amount</td>
+    </tr>
+    <tr>
+        <td>hue(color)</td>
+        <td>returns the hue of color</td>
+    </tr>
+    <tr>
+        <td>saturation(color)</td>
+        <td>returns the saturation of color</td>
+    </tr>
+    <tr>
+        <td>lightness(color)</td>
+        <td>returns the lightness of color</td>
+    </tr>
+    <tr>
+        <td>alpha(color)</td>
+        <td>returns the alpha value of color or 1.0 if it doesn’t have an alpha</td>
+    </tr>
+    <tr>
+        <td>percentage(number)</td>
+        <td>converts a floating point number to a percentage, e.g. 0.65 –> 65%</td>
+    </tr>
+    <tr>
+        <td>mix(color1, color1, percent)</td>
+        <td>mixes two colors by percentage where 100% keeps all of color1, and 0% keeps all of color2. Will take into
+            account the alpha of the colors if it exists.
+        </td>
+    </tr>
+    <tr>
+        <td>rgbahex(color)</td>
+        <td>returns a string containing 4 part hex color.</td>
+    </tr>
+    </tbody>
+</table>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+<!-- Section : JS Guidelines -->
+<section id="js-guidelines">
+<header>
+    <h1>JavaScript</h1>
+</header>
+
+<!-- Sub Heading : Begin -->
+<h3>General Guidelines</h3>
+
+<h5>Separate Javascript Functionality from HTML</h5>
+<p>Separate Javascript functionality into a “behavioural layer,” so that it is separate from and
+    independent of HTML and CSS. HTML is the markup, CSS the presentation and Javascript the
+    behavioural layer. This means storing ALL Javascript code in external script files and building
+    pages that do not rely on Javascript to be usable.</p>
+
+<pre class="bad">
+&lt;!-- HTML --&gt;
+&lt;a onclick="doSomething()" href="#"&gt;Click!&lt;/a&gt;
+</pre>
+
+<pre class="good">
+&lt;!-- HTML --&gt;
+&lt;a href="backuplink.html" class="doSomething"&gt;Click!&lt;/a&gt;
+
+// Javascript
+$('a.doSomething').click(function(){
+    alert('You did something, woo hoo!');
+});
+</pre>
+<h5>Load scripts asynchronously</h5>
+<p>The less there is to initialize and to process in the beginning, the faster your website loads. This is
+    not directly affecting your JavaScript performance, but at the end of the day the user only cares
+    about the performance of your website.</p>
+<p>Please note, that this is only relevant when it comes to a certain level of Javascript in size and
+    complexity. For the majority of websites, it's usually recommend to save additional requests and
+    combine & minify your JavaScript into one file as well as compress (gzip) it for delivery. This is also
+    the easiest way to leverage caching mechanisms of browsers.</p>
+
+<h5>JSLint your code</h5>
+<p>Mr. Douglas Crockford, the father of JavaScript has some ideas about how "good" JS code looks
+    like and he has written a JSLint script to validate any code against it. Although there might be good
+    reasons to not follow each and every rule, it's usually a very good starting point for getting your
+    code clean, stable and increasing the compression rate for delivery.</p>
+
+<h5>Avoid &quot;eval&quot;</h5>
+<p>The well‐known JavaScript rule "eval is evil" is there for a reason. You should avoid, unless you're
+    100% (better make it 1000%) sure, you are facing one of the rare exceptions in which it's
+    appropriate.</p>
+<p>The eval() function in JavaScript is a way to run arbitrary code at run‐time. That means you're
+    running any (!) kind of code within the current scope and execution context. This violates the
+    integrity of your variable values (identifier conflicts) and is a serious threat to the security of your
+    code or even your entire website.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Naming Conventions</h3>
+<h5>Variables</h5>
+<p>Identifiers (other than constructors) should start with a lowercase letter and use camelCase for
+    multiple words.</p>
+<pre class="bad">
+var _myVar = 'foo';
+var my_var = 'foo';
+var MYVAR = 'foo';
+var $myvar = 'foo';
+function MyFunction() {
+}
+function MY_FUNCTION() {
+}
+</pre>
+<pre class="good">
+var myVar = 'foo';
+function myFunction() {
+}
+</pre>
+
+<h5>Constructors</h5>
+<p>Constructors should start with an uppercase letter and use camelCase for multiple words to better
+    conform with native JavaScript syntax.</p>
+<pre class="bad">
+function foo() {};
+foo.prototype = {};
+new foo;
+</pre>
+<pre class="good">
+function Foo() {};
+Foo.prototype = {};
+new Foo;
+</pre>
+
+<h5>Quotes</h5>
+<p>Use single quotes. Saves a keystroke and simplifies readability. Also, string literals more often
+    contain single quotes than double quotes, so this reduces the amount of escaping necessary.</p>
+<pre class="bad">
+var foo = "bar";
+</pre>
+<pre class="good">
+var foo = 'bar';
+</pre>
+<h5>Brackets</h5>
+<p>Place opening brackets on same line as preceding statement. This avoids errors in cases where
+    automatic semi‐colon insertion causes the return statement to return undefined instead of an
+    object literal.</p>
+<pre class="bad">
+function foo()
+{
+}
+return
+{
+    "myMethod": myMethod
+}
+</pre>
+<pre class="good">
+function foo() {
+}
+return {
+    "myMethod": myMethod
+}
+</pre>
+<h5>Variable Declarations</h5>
+<p>Declare all vars at the top of their scope when possible. This helps to one understand the scope's
+    variables and makes maintenance easier.</p>
+<pre class="bad">
+function sample(condition) {
+    if ( condition ) {
+     var foo = 'bar';
+    }
+    return foo;
+}
+</pre>
+<pre class="good">
+function sample(condition) {
+    var foo;
+    if ( condition ) {
+        foo = 'bar';
+    }
+    return foo;
+}
+</pre>
+<p>When working with a large number of variables declare all vars with one var keyword when appropriate
+    and use preceding commas. Although this method is more difficult to maintain it can be helpful when
+    working with a large list variables.</p>
+<pre class="bad">
+var foo;
+var bar;
+var lorem;
+var ipsum;
+var dolor;
+</pre>
+<pre class="good">
+var foo,
+    bar,
+    lorem,
+    ipsum,
+    dolor;
+</pre>
+<h5>Object Literals</h5>
+<p>Favor object literal notation for grouping object members. Grouping related members helps to
+    keep code organized and allows editors to collapse blocks for readability.</p>
+<pre class="bad">
+var foo = {};
+foo.prop = 'bar';
+foo.method = function() {};
+</pre>
+<pre class="good">
+var foo = {
+    prop: 'bar',
+    method: function() {
+    }
+}
+</pre>
+
+<!-- Sub Heading : Begin -->
+<h3>Performance</h3>
+<h5>Reading/ Writing Values</h5>
+<p>The storing and accessing of values can differ in terms of speed depending of different methods.
+    The impact of these different methods can make an impact when there are many read/write operations
+    (real‐time calculations) versus storing large amounts of data (state caching). As a general note,
+    try to use literals as often as possible. Especially when it comes to declaration of arrays/objects.</p>
+<pre class="bad">
+var array = new Array,
+    object = new Object,
+    string = new String;
+</pre>
+<pre class="good">
+var array = [ ],
+    object = { },
+    string = "";
+</pre>
+<h5>Loops</h5>
+<p>In general the common "for" and "while" loops should be the preferred options. Apart from the
+    loop‐type it's way more important to cut down the amount of operations that happen in each
+    iteration.</p>
+<p>A usual scenario is looping over an array, which can be optimized like this (maybe moving the var
+    statement to the top of your function for readability and happy lint'ing):</p>
+<pre class="bad">
+// calculating the constant array-length in every iteration
+for(var i = 0; i < arr.length; i++){
+    do_stf();
+}
+</pre>
+<pre class="good">
+// calculating the constant array-length once
+for(var i = 0, len = arr.length; i < len; i++){
+    do_stf();
+}
+// if the process order doesn't matter
+// this performs only one operation per iteration
+// and the loop stops at 0 (false) automatically
+for(var i = arr.length ; i-- ; ){
+    do_stf();
+}
+</pre>
+<h5>Strict Comparisions</h5>
+<p>Use strict comparisons when possible. Strict comparisons use the operand's value and type to
+    determine the condition. This avoids type coercion (which has a performance cost), and more
+    clearly communicates intent. For example, if a developer wrote <code>if ( foo == null ) {...}</code>, did he intend
+    other false values (such as false, 0, '', or undefined) to pass this conditional?</p>
+<pre class="bad">
+if ( a == b )
+if ( a != b )
+</pre>
+<pre class="good">
+if ( a === b )
+if ( a !== b )
+</pre>
+
+<h5>Avoid 'with'</h5>
+<p>A 'with' statement in JavaScript inserts an object at the front scope chain, so any property/variable
+    references will first try to be resolved against this object. That means you add another level to the
+    resolving process, which can impact your overall performance. Moreover conflicting identifier
+    names can cause serious problems. Compare the following figure for with‐statement:</p>
+<pre class="bad">
+function add(num1,num2){
+    with(document){
+        var sum = num1 + num2,
+        n = createTextNode(sum),
+        p = getElementById(“t1”);
+        p.appendChild(n);
+        return sum;
+    }
+}
+var total = add(5, 10);
+</pre>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+<!-- Section : jQuery Guidelines -->
+<section id="jquery-guidelines">
+<header>
+    <h1>jQuery</h1>
+</header>
+
+<!-- Sub Heading : Begin -->
+<h3>Best Practices</h3>
+
+<h5>$(window).load()</h5>
+<p>There is a temptation among jQuery developers to hook everything into the <code>$(document).ready</code> pseudo
+    event.
+    After all, it is used in most examples you will find. Although <code>$(document).ready</code> is incredibly useful,
+    it occurs during page render while objects are still downloading. If you notice your page stalling
+    while loading, all those <code>$(document).ready</code> functions could be the reason why. You can reduce CPU
+    utilization during the page load by binding your jQuery functions to the <code>$(window).load</code> event,
+    which occurs after all objects called by the HTML (including <code>&lt;iframe&gt;</code> content) have downloaded.
+</p>
+<pre class="good">
+$(window).load(function(){
+    // jQuery functions to initialize after the page has loaded.
+});
+</pre>
+<h5>Descend From an #id</h5>
+<p>The fastest selector in jQuery is the ID selector <code>$('#someid')</code>. This is because it maps
+    directly to a native JavaScript method, <code>getElementById()</code>. Whenever possible descend
+    from an id, especially when querying for multiple elements.</p>
+<pre class="bad">
+var buttons = $('.button');
+</pre>
+<pre class="good">
+var buttons = $('#content .button');
+</pre>
+
+<h5>Use Tags Before Classes</h5>
+<p>The second fastest selector in jQuery is the Tag selector <code>$('head')</code>. Again, this is
+    because it maps to a native JavaScript method, <code>getElementsByTagName()</code>. For additional
+    efficiency include and id as well.</p>
+<pre class="good">
+var content = $('input.on');
+var content = $('#content input.on');
+</pre>
+<h5>Use Sub-queries</h5>
+<p>jQuery allows us to run additional selector operations on a wrapped set. This reduces performance
+    overhead on subsequent selections since we already grabbed and stored the parent object in a local variable.</p>
+<pre class="good">
+var $traffic_light = $('#traffic_light'),
+    $active_light = $traffic_light.find('input.on'),
+    $inactive_lights = $traffic_light.find('input.off');
+</pre>
+
+<h5>Cache query selector results</h5>
+<p>Way more important than finding the most efficient selector is caching your results for repeating
+    tasks. Instead of traversing the same DOM tree branch over and over again, you should cache the
+    results on initialization (if static) or after a related DOM update (i.e. after AJAX insert). Using
+    jQuery here as an example, but the same is true for native JS or any other library/framework.</p>
+<pre class="bad">
+// traversing for "#myList" 2x on every click
+$("#myButton").on('click', function (e) {
+    if ($("#myList").hasClass("active")) {
+        $("#myList").removeClass("active");
+    } else {
+        $("#myList").addClass("active");
+    }
+});
+</pre>
+<pre class="good">
+// caching the "#myList" Object once
+var myList = $("#myList");
+$("#myButton").on('click', function (e) {
+    if (myList.hasClass("active")) {
+        myList.removeClass("active");
+    } else {
+        myList.addClass("active");
+    }
+});
+</pre>
+<h5>Chain multiple operations</h5>
+<p>Chaining operations in jQuery is more efficient than multiple operations against one object.</p>
+<pre class="bad">
+// instead of multiple operations on one HTML object ...
+var myList = $("#myList");
+myList.hide();
+myList.css("background-color","#bada55");
+myList.show();
+</pre>
+<pre class="good">
+// ... chain it and leverage built-in optimizations
+$("#myList").hide()
+    .css("background-color","#bada55")
+    .show();
+</pre>
+<h5>Limit Direct DOM Manipulation</h5>
+<p>The basic idea here is to create exactly what you need in memory, and then update the DOM. This is not
+    a jQuery best practice, but a must for efficient JavaScript. Direct DOM manipulation is slow. </p>
+<pre class="bad">
+var top_100_list = [...], // assume this has 100 unique strings
+$mylist = $('#mylist'); // jQuery selects our &lt;ul&gt; element
+
+for (var i=0, l=top_100_list.length; i&lt;l; i++)
+{
+    $mylist.append('&lt;li&gt;' + top_100_list[i] + '&lt;/li&gt;');
+}
+</pre>
+<pre class="good">
+var top_100_list = [...], // assume this has 100 unique strings
+$mylist = $('#mylist'), // jQuery selects our &lt;ul&gt; element
+top_100_li = ""; // This will store our list items
+
+for (var i=0, l=top_100_list.length; i&lt;l; i++)
+{
+top_100_li += '&lt;li&gt;' + top_100_list[i] + '&lt;/li&gt;';
+}
+$mylist.html(top_100_li);
+</pre>
+
+<h5>Leverage Bubbling</h5>
+<p>Unless told otherwise, every event (e.g. click, mouseover, etc.) in JavaScript “bubbles” up the DOM
+    tree to parent elements. This is incredibly useful when we want many elements (nodes) to call the
+    same function. Instead of binding an event listener function to many nodes—very inefficient—you can
+    bind it once to their parent, and have it figure out which node triggered the event.</p>
+<pre class="bad">
+$('#myList li).bind('click', function(){
+    $(this).addClass('clicked');
+    // do stuff
+});
+</pre>
+<pre class="good">
+$('#myList).bind('click', function(e){
+    var target = e.target, // e.target grabs the node that triggered the event.
+    $target = $(target);  // wraps the node in a jQuery object
+    if (target.nodeName === 'li') {
+        $target.addClass('clicked');
+        // do stuff
+    }
+});
+</pre>
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+</div>
+</div>
+</div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="lib/prettify/prettify.js"></script>
+    <script src="lib/prettify/lang/lang-css.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-affix.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/global.js"></script>
+</body>
+</html>
