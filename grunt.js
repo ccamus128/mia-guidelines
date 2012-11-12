@@ -1,6 +1,23 @@
 module.exports = function (grunt) {
 
-    var data = require("./package.json");
+    var data = require("./package.json"),
+        recessOptions = {
+            compress:false, // Compress your compiled code using LESS
+            noIDs:true, // Doesn't complain about using IDs in your stylesheets
+            prefixWhitespace:true, // Adds whitespace prefix to line up vender prefixed properties
+            compile:true                    // Compiles CSS or LESS. Fixes white space and sort order.
+            /*
+             noJSPrefix:true,                // Doesn't complain about styling .js- prefixed classnames
+             noOverqualifying:true,          // Doesn't complain about overqualified selectors (ie:div#foo.bar)
+             noUnderscores:true,             // Doesn't complain about using underscores in your class names
+             noUniversalSelectors:true,      // Doesn't complain about using the universal * selector
+
+             strictPropertyOrder:true,       // Complains if not strict property order
+             stripColors:false,              // Strip colors from the Terminal output
+             zeroUnits:true,                 // Doesn't complain if you add units to values of 0
+             */
+        };
+
     // Project configuration.
     grunt.initConfig({
         data:"<json:package.json>",
@@ -44,16 +61,6 @@ module.exports = function (grunt) {
         /*
          CSS Tasks
          */
-        less:{
-            all:{
-                src:data.paths.source.project,
-                dest:data.paths.output.project,
-                options:{
-                    //compress:true,
-                    //yuicompress:true
-                }
-            }
-        },
         csslint:{
             src:data.paths.source.css,
             rules:{
@@ -67,25 +74,20 @@ module.exports = function (grunt) {
             all:"css/*.css"
         },
         recess:{
-            dist:{
+            project:{
                 src:data.paths.source.project,
                 dest:data.paths.output.project,
-                options:{
-                    compress:false, // Compress your compiled code using LESS
-                    noIDs:false, // Doesn't complain about using IDs in your stylesheets
-                    prefixWhitespace:true, // Adds whitespace prefix to line up vender prefixed properties
-                    compile:true                    // Compiles CSS or LESS. Fixes white space and sort order.
-                    /*
-                     noJSPrefix:true,                // Doesn't complain about styling .js- prefixed classnames
-                     noOverqualifying:true,          // Doesn't complain about overqualified selectors (ie:div#foo.bar)
-                     noUnderscores:true,             // Doesn't complain about using underscores in your class names
-                     noUniversalSelectors:true,      // Doesn't complain about using the universal * selector
-
-                     strictPropertyOrder:true,       // Complains if not strict property order
-                     stripColors:false,              // Strip colors from the Terminal output
-                     zeroUnits:true,                 // Doesn't complain if you add units to values of 0
-                     */
-                }
+                options:recessOptions
+            },
+            bootstrap:{
+                src:data.paths.source.bootstrap,
+                dest:data.paths.output.bootstrap,
+                options:recessOptions
+            },
+            bootstrapResponsive:{
+                src:data.paths.source.bootstrapResponsive,
+                dest:data.paths.output.bootstrapResponsive,
+                options:recessOptions
             }
         },
         /*

@@ -9,8 +9,9 @@
 	},
     "paths":{
         "source":{
-            "less":"<%= data.paths.folder.build %>less/**/*.less",
             "project":"<%= data.paths.folder.build %>less/project.less",
+            "bootstrap":"<%= data.paths.folder.build %>less/bootstrap.less",
+            "bootstrapResponsive":"<%= data.paths.folder.build %>less/responsive.less",
             "css":"<%= data.paths.folder.build %>css/**/*.css",
             "js":"<%= data.paths.folder.build %>lib/**/*.js"
         },
@@ -21,7 +22,9 @@
         },
         "output":{
             "project":"<%= data.paths.folder.build %>css/global.css",
-            "tag":"tags/tag-<%= data.version %>.zip"
+            "bootstrap":"<%= data.paths.folder.build %>css/bootstrap.css",
+            "bootstrapResponsive":"<%= data.paths.folder.build %>css/bootstrap-responsive.css",
+            "tag":"<%= data.paths.folder.tags %>/tag-<%= data.version %>.zip"
         },
         "excludes":[
             "<%= data.paths.folder.release %>test",
