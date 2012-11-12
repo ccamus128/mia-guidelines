@@ -20,24 +20,24 @@ module.exports = function (grunt) {
         copy:{
             release:{
                 files:{
-                    "<%= data.paths.dir.release %>":"<%= data.paths.dir.build %>/**"
+                    "<%= data.paths.folder.release %>":"<%= data.paths.folder.build %>/**"
                 }
             },
             tag:{
                 files:{
-                    "<%= data.paths.dir.tag %>":"<%= data.paths.dir.release %>/**"
+                    "<%= data.paths.folder.tag %>":"<%= data.paths.folder.release %>/**"
                 }
             }
         },
         clean:{
             release:data.paths.excludes,
-            prepareRelease:"<%= data.paths.dir.release %>",
-            prepareTag:"<%= data.paths.dir.tag %>"
+            prepareRelease:"<%= data.paths.folder.release %>",
+            prepareTag:"<%= data.paths.folder.tag %>"
         },
         compress:{
             tag:{
                 files:{
-                    "<%= data.paths.output.tag %>":"<%= data.paths.dir.release %>/**"
+                    "<%= data.paths.output.tag %>":"<%= data.paths.folder.release %>/**"
                 }
             }
         },

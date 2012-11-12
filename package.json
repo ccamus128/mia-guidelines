@@ -9,28 +9,28 @@
 	},
     "paths":{
         "source":{
-            "less":"<%= data.paths.dir.build %>less/**/*.less",
-            "project":"<%= data.paths.dir.build %>less/project.less",
-            "css":"<%= data.paths.dir.build %>css/**/*.css",
-            "js":"<%= data.paths.dir.build %>lib/**/*.js"
+            "less":"<%= data.paths.folder.build %>less/**/*.less",
+            "project":"<%= data.paths.folder.build %>less/project.less",
+            "css":"<%= data.paths.folder.build %>css/**/*.css",
+            "js":"<%= data.paths.folder.build %>lib/**/*.js"
         },
-        "dir":{
+        "folder":{
             "build":"build/",
             "release":"release/",
-            "tag":"tags/tag-<%= data.version %>/"
+            "tags":"tags/"
         },
         "output":{
-            "project":"<%= data.paths.dir.build %>css/global.css",
+            "project":"<%= data.paths.folder.build %>css/global.css",
             "tag":"tags/tag-<%= data.version %>.zip"
         },
         "excludes":[
-            "<%= data.paths.dir.release %>test",
-            "<%= data.paths.dir.release %>dist",
-            "<%= data.paths.dir.release %>*.styl",
-            "<%= data.paths.dir.release %>**/*.sass",
-            "<%= data.paths.dir.release %>**/less",
-            "<%= data.paths.dir.release %>**/*.coffee",
-            "<%= data.paths.dir.release %>*.DS_Store"
+            "<%= data.paths.folder.release %>test",
+            "<%= data.paths.folder.release %>dist",
+            "<%= data.paths.folder.release %>*.styl",
+            "<%= data.paths.folder.release %>**/*.sass",
+            "<%= data.paths.folder.release %>**/less",
+            "<%= data.paths.folder.release %>**/*.coffee",
+            "<%= data.paths.folder.release %>*.DS_Store"
         ]
     },
     "dependencies":{
