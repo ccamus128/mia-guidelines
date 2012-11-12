@@ -1,20 +1,20 @@
 module.exports = function (grunt) {
 
-    var data = require('./package.json');
+    var data = require("./package.json");
     // Project configuration.
     grunt.initConfig({
-        data:'<json:package.json>',
+        data:"<json:package.json>",
         /*
         File Operation Tasks
          */
         watch:{
             lint:{
                 files:data.paths.source.js,
-                tasks:'lint'
+                tasks:"lint"
             },
             less:{
                 files:data.paths.source.less,
-                tasks:'less'
+                tasks:"less"
             }
         },
         copy:{
@@ -30,9 +30,9 @@ module.exports = function (grunt) {
             }
         },
         clean:{
-            prepare_release:"<%= data.paths.dir.release %>",
-            prepare_tag:"<%= data.paths.dir.tag %>",
-            release:data.paths.excludes
+            release:data.paths.excludes,
+            prepareRelease:"<%= data.paths.dir.release %>",
+            prepareTag:"<%= data.paths.dir.tag %>"
         },
         compress:{
             tag:{
@@ -57,14 +57,14 @@ module.exports = function (grunt) {
         csslint:{
             src:data.paths.source.css,
             rules:{
-                //'duplicate-properties':true,
-                'ids':false
-                //'qualified-headings':false,
-                //'empty-rules':true
+                //"duplicate-properties":true,
+                "ids":false
+                //"qualified-headings":false,
+                //"empty-rules":true
             },
-            valid:'css/valid.css',
-            empty:'css/empty.css',
-            all:'css/*.css'
+            valid:"css/valid.css",
+            empty:"css/empty.css",
+            all:"css/*.css"
         },
         recess:{
             dist:{
@@ -111,25 +111,25 @@ module.exports = function (grunt) {
                 es5:true
             },
             globals:{
-                'console':true,
-                '_':true,
-                'jQuery':true,
-                '$':true
+                "console":true,
+                "_":true,
+                "jQuery":true,
+                "$":true
             }
         }
     });
-    //grunt.loadTasks('tasks');
-    grunt.loadNpmTasks('grunt-recess');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-less');
-    //grunt.loadNpmTasks('grunt-css');
+    //grunt.loadTasks("tasks");
+    grunt.loadNpmTasks("grunt-recess");
+    grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks("grunt-contrib-clean");
+    grunt.loadNpmTasks("grunt-contrib-compress");
+    grunt.loadNpmTasks("grunt-less");
+    //grunt.loadNpmTasks("grunt-css");
     // Default task.
-    grunt.registerTask('default', 'lint release');
+    grunt.registerTask("default", "lint release");
 
-    grunt.registerTask('build', 'lint less');
-    grunt.registerTask('release', 'clean:prepare_release copy:release clean:release');
-    grunt.registerTask('tag', 'clean:prepare_tag copy:tag');
+    grunt.registerTask("build", "lint less");
+    grunt.registerTask("release", "clean:prepareRelease copy:release clean:release");
+    grunt.registerTask("tag", "clean:prepareTag compress:tag");
 };
 
