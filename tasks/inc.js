@@ -52,7 +52,6 @@ module.exports = function(grunt) {
         var output = source,
             incMatches;
         while ((incMatches = reg.exec(source)) !== null) {
-            console.log("cunt");
             output = output.replace(incMatches[1], (grunt.file.read(base + incMatches[2])));
         }
         return output;
