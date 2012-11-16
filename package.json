@@ -9,6 +9,8 @@
 	},
     "paths":{
         "source":{
+            "index":"<%= data.paths.folder.build %>/index.html",
+            "html":"<%= data.paths.folder.build %>/**/*.html",
             "project":"<%= data.paths.folder.build %>less/project.less",
             "bootstrap":"<%= data.paths.folder.build %>less/bootstrap.less",
             "bootstrapResponsive":"<%= data.paths.folder.build %>less/responsive.less",
@@ -21,6 +23,7 @@
             "tags":"tags/"
         },
         "output":{
+            "index":"<%= data.paths.folder.release %>/index.html",
             "project":"<%= data.paths.folder.build %>css/global.css",
             "bootstrap":"<%= data.paths.folder.build %>css/bootstrap.css",
             "bootstrapResponsive":"<%= data.paths.folder.build %>css/bootstrap-responsive.css",

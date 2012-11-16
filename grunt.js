@@ -59,6 +59,16 @@ module.exports = function (grunt) {
             }
         },
         /*
+        HTML Tasks
+         */
+        inc:{
+            index:{
+                src:data.paths.source.html,
+                dest:data.paths.folder.release,
+                root:data.paths.folder.build
+            }
+        },
+        /*
          CSS Tasks
          */
         csslint:{
@@ -120,7 +130,7 @@ module.exports = function (grunt) {
             }
         }
     });
-    //grunt.loadTasks("tasks");
+    grunt.loadTasks("tasks");
     grunt.loadNpmTasks("grunt-recess");
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-contrib-clean");

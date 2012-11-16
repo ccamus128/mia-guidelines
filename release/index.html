@@ -100,11 +100,11 @@
     they are followed throughout the life of the project.</p>
 
 <!-- Sub Heading : Begin -->
-<h3>Source Control</h3>
+<h3>Version Control</h3>
 <p>All Sapient projects should use source control. We generally have a SVN repository setup through
-    ResultSpace3, some projects may use Git. All members of a team must have access to source control
-    and are mandated to use it.</p>
-<p><strong><em>Do not begin development without access to a source control repository!</em></strong></p>
+    ResultSpace3, some projects may use a different version control system depending on client requirements. All members
+    of a team must have access to version control and are mandated to use it.</p>
+<p><strong><em>Do not begin development without access to a version control repository!</em></strong></p>
 
 <!-- Sub Heading : Begin -->
 <h3>Automation</h3>
@@ -168,9 +168,9 @@
 <table class="option-list">
     <thead>
     <tr>
-        <td>Display</td>
-        <td>Portrait</td>
-        <td>Landscape</td>
+        <th>Display</th>
+        <th>Portrait</th>
+        <th>Landscape</th>
     </tr>
     </thead>
     <tbody>
@@ -332,7 +332,7 @@ Main Section
 // Sub Section
 // ==================================
 </pre>
-<div class="alert alert-danger"><strong>Note:</strong> When LESS is output to CSS these comments will not show. In order to conserve your comments in the final CSS use standard CSS comments.</div>
+<div class="alert alert-info"><strong>Note:</strong> When LESS is output to CSS these comments will not show. In order to conserve your comments in the final CSS use standard CSS comments.</div>
 <footer>
     <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
 </footer>
@@ -359,8 +359,8 @@ project/
 <table class="option-list">
     <thead>
     <tr>
-        <td>Folder/ Filename</td>
-        <td>Purpose</td>
+        <th>Folder/ Filename</th>
+        <th>Purpose</th>
     </tr>
     </thead>
     <tbody>
@@ -424,8 +424,8 @@ build/
 <table class="option-list">
     <thead>
     <tr>
-        <td>Folder/ Filename</td>
-        <td>Purpose</td>
+        <th>Folder/ Filename</th>
+        <th>Purpose</th>
     </tr>
     </thead>
     <tbody>
@@ -478,8 +478,8 @@ build/
 <table class="option-list">
     <thead>
     <tr>
-        <td>Development Libraries &amp; Tools</td>
-        <td>Preferred Option(s)</td>
+        <th>Development Libraries &amp; Tools</th>
+        <th>Preferred Option(s)</th>
     </tr>
     </thead>
     <tbody>
@@ -517,13 +517,19 @@ build/
                 href="http://www.sublimetext.com/" target="_blank">Sublime Text</a></td>
     </tr>
     </tbody>
+</table>
+<table class="option-list">
     <thead>
     <tr>
-        <td>Online Tools & Resources</td>
-        <td>Preferred Option(s)</td>
+        <th>Online Tools & Resources</th>
+        <th>Preferred Option(s)</th>
     </tr>
     </thead>
     <tbody>
+    <tr>
+        <td>Compatibility Tables</td>
+        <td><a href="http://caniuse.com/">Can I use...</a></td>
+    </tr>
     <tr>
         <td>HTML5 Semantics</td>
         <td><a href="http://html5doctor.com/element-index/">HTML5 Doctor | Element Index</a></td>
@@ -577,7 +583,7 @@ build/
     <li>Customizable snippets</li>
     <li>Customizable Project Templates</li>
     <li>Customizable File Templates</li>
-    <li>Built-in Git, SVN and CSV integration</li>
+    <li>Built-in VCS integration</li>
     <li>Allows the replacement of tabs with spaces</li>
 </ul>
 
@@ -606,7 +612,7 @@ build/
 <h3>Semantics</h3>
 <p>The concept of semantics goes hand in hand with HTML5. Review the PDF included below, it will help you
     choose what element is most appropriate for your content.</p>
-<a href="img/html5-flowchart.png" target="_blank"><img src="img/html5-flowchart.jpg" alt="HTML5 Flowchart"></a>
+<a href="img/html5-flowchart.png" class="img-link" target="_blank"><img src="img/html5-flowchart.jpg" alt="HTML5 Flowchart"></a>
 <p>For more information on specific tags and their appropriate use visit <a
         href="http://html5doctor.com/element-index/">HTML5 Doctor | Element Index</a>.</p>
 
@@ -662,8 +668,8 @@ build/
 <table class="option-list">
     <thead>
     <tr>
-        <td>Category</td>
-        <td>Elements</td>
+        <th>Category</th>
+        <th>Elements</th>
     </tr>
     </thead>
     <tbody>
@@ -723,8 +729,8 @@ build/
 <table class="option-list">
     <thead>
     <tr>
-        <td>Category</td>
-        <td>Elements</td>
+        <th>Category</th>
+        <th>Elements</th>
     </tr>
     </thead>
     <tbody>
@@ -774,8 +780,8 @@ build/
 <table class="option-list">
     <thead>
     <tr>
-        <td>Property</td>
-        <td>Option</td>
+        <th>Property</th>
+        <th>Option</th>
     </tr>
     </thead>
     <tbody>
@@ -1239,8 +1245,8 @@ section {
 <table class="option-list">
     <thead>
     <tr>
-        <td>Function</td>
-        <td>Description</td>
+        <th>Function</th>
+        <th>Description</th>
     </tr>
     </thead>
     <tbody>
@@ -1695,8 +1701,8 @@ $mylist.html(top_100_li);
     bind it once to their parent, and have it figure out which node triggered the event.</p>
 <pre class="bad">
 $('#myList li).bind('click', function(){
-	$(this).addClass('clicked');
-	// do stuff
+    $(this).addClass('clicked');
+    // do stuff
 });
 </pre>
 <pre class="good">
@@ -1716,16 +1722,16 @@ $('#myList).bind('click', function(e){
 </div>
 </div>
 </div>
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="lib/prettify/prettify.js"></script>
-<script src="lib/prettify/lang/lang-css.js"></script>
-<script src="js/bootstrap-transition.js"></script>
-<script src="js/bootstrap-affix.js"></script>
-<script src="js/bootstrap-scrollspy.js"></script>
-<script src="js/bootstrap-collapse.js"></script>
-<script src="js/global.js"></script>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="lib/prettify/prettify.js"></script>
+    <script src="lib/prettify/lang/lang-css.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-affix.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/global.js"></script>
 </body>
 </html>
