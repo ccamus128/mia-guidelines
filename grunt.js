@@ -68,6 +68,9 @@ module.exports = function (grunt) {
                 root:data.paths.folder.build
             }
         },
+        modified:{
+            src:data.paths.source.index
+        },
         /*
          CSS Tasks
          */
@@ -141,7 +144,7 @@ module.exports = function (grunt) {
     grunt.registerTask("default", "lint release");
 
     grunt.registerTask("build", "lint less");
-    grunt.registerTask("release", "clean:prepareRelease copy:release clean:release");
+    grunt.registerTask("release", "modified clean:prepareRelease copy:release clean:release");
     grunt.registerTask("tag", "clean:prepareTag compress:tag");
 };
 
