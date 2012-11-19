@@ -43,6 +43,8 @@ module.exports = function(grunt) {
                 if (incPHP.test(source)) output = replaceIncludes(incPHP, output, basePath);
                 if (source !== output) grunt.file.write(destPath + filePath, output);
             });
+        } else {
+            grunt.log.error("Destination must be a directory!");
         }
 
 
