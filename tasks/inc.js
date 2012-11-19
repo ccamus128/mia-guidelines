@@ -44,7 +44,7 @@ module.exports = function(grunt) {
                 if (source !== output) grunt.file.write(destPath + filePath, output);
             });
         } else {
-            grunt.log.error("Destination must be a directory!");
+            grunt.log.error("Destination must be a directory!\nDid you miss a trailing '/'?");
         }
 
 
