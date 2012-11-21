@@ -25,24 +25,19 @@ module.exports = function (grunt) {
         File Operation Tasks
          */
         watch:{
-            lint:{
-                files:data.paths.source.js,
-                tasks:"lint"
+            html:{
+                files:data.paths.source.html,
+                tasks:"inc"
             },
             less:{
                 files:data.paths.source.less,
-                tasks:"less"
+                tasks:"recess"
             }
         },
         copy:{
             release:{
                 files:{
                     "<%= data.paths.folder.release %>":"<%= data.paths.folder.build %>/**"
-                }
-            },
-            tag:{
-                files:{
-                    "<%= data.paths.folder.tag %>":"<%= data.paths.folder.release %>/**"
                 }
             }
         },
@@ -74,18 +69,6 @@ module.exports = function (grunt) {
         /*
          CSS Tasks
          */
-        csslint:{
-            src:data.paths.source.css,
-            rules:{
-                //"duplicate-properties":true,
-                "ids":false
-                //"qualified-headings":false,
-                //"empty-rules":true
-            },
-            valid:"css/valid.css",
-            empty:"css/empty.css",
-            all:"css/*.css"
-        },
         recess:{
             project:{
                 src:data.paths.source.project,
@@ -138,13 +121,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-compress");
-    grunt.loadNpmTasks("grunt-less");
-    //grunt.loadNpmTasks("grunt-css");
-    // Default task.
+
     grunt.registerTask("default", "lint release");
 
-    grunt.registerTask("build", "lint less");
-    grunt.registerTask("release", "modified clean:prepareRelease copy:release clean:release");
+    grunt.registerTask("build", "recess");
+    grunt.registerTask("release", "build modified clean:prepareRelease copy:release clean:release inc");
     grunt.registerTask("tag", "clean:prepareTag compress:tag");
 };
 

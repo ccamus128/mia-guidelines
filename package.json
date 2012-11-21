@@ -40,11 +40,11 @@
         ]
     },
     "dependencies":{
-       "grunt-recess":"*",
-       "grunt-contrib-copy":"*",
-       "grunt-contrib-clean":"*",
-       "grunt-contrib-compress":"*",
-       "grunt-less":"*"
+        "grunt-recess":"0.1.x",
+        "grunt-contrib-copy":"0.3.x",
+        "grunt-contrib-clean":"0.3.x",
+        "grunt-contrib-compress":"0.3.x",
+        "grunt-less":"0.1.x"
     }
 
 }

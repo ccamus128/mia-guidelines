@@ -46,8 +46,6 @@ module.exports = function(grunt) {
         } else {
             grunt.log.error("Destination must be a directory!\nDid you miss a trailing '/'?");
         }
-
-
     });
     function replaceIncludes(reg, source, base){
         reg.lastIndex = 0;
