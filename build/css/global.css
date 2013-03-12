@@ -3,11 +3,6 @@
 Global Elements
 ---------------------------------------------
 */
-/*
----------------------------------------------
-Global Elements
----------------------------------------------
-*/
 body {
   padding-top: 0;
   padding-bottom: 30px;
@@ -106,7 +101,7 @@ Global Classes
   background: -o-linear-gradient(top, #00ffff 0%, #ff00ff 100%);
   background: -ms-linear-gradient(top, #00ffff 0%, #ff00ff 100%);
   background: linear-gradient(to bottom, #00ffff 0%, #ff00ff 100%);
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#00ffff', endColorstr='#ff00ff', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffff', endColorstr='#ff00ff', GradientType=0);
   position: relative;
   margin-bottom: 15px;
   color: #ffffff;
@@ -338,5 +333,5 @@ Mixins
   background: -o-linear-gradient(top, #00ffff 0%, #ff00ff 100%);
   background: -ms-linear-gradient(top, #00ffff 0%, #ff00ff 100%);
   background: linear-gradient(to bottom, #00ffff 0%, #ff00ff 100%);
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#00ffff', endColorstr='#ff00ff', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffff', endColorstr='#ff00ff', GradientType=0);
 }

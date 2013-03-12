@@ -23,7 +23,7 @@ module.exports = function(grunt) {
             incPHP = /(<\?php\s+include\(?\s?['"](.*)['"]\s?\)?;\s+\?>)/g,
             root = this.data.root,
             destPath = this.data.dest,
-            filePaths = grunt.file.expandFiles(this.data.src),
+            filePaths = grunt.file.expand(this.data.src),
             basePath,
             filePath,
             source,

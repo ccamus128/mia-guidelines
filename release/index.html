@@ -36,7 +36,7 @@
                 <ul class="nav sd-topnav-inner">
                 </ul>
             </div>
-            <span class="last-updated hidden-phone">Last Updated: 10/4/12</span>
+            <span class="last-updated hidden-phone">Last Updated: 3.12.2013</span>
             <!--/.nav-collapse -->
         </div>
     </div>
@@ -58,7 +58,6 @@
         <li><a href="#html-guidelines">HTML <i class="icon-chevron-right"></i></a></li>
         <li><a href="#mobile-guidelines">Mobile <i class="icon-chevron-right"></i></a></li>
         <li><a href="#css-guidelines">CSS <i class="icon-chevron-right"></i></a></li>
-        <li><a href="#less-guidelines">LESS <i class="icon-chevron-right"></i></a></li>
         <li><a href="#js-guidelines">JavaScript <i class="icon-chevron-right"></i></a></li>
         <li><a href="#jquery-guidelines">jQuery <i class="icon-chevron-right"></i></a></li>
     </ul>
@@ -108,7 +107,7 @@
 
 <!-- Sub Heading : Begin -->
 <h3>Automation</h3>
-<p>Whether it's compiling LESS files into CSS or linting your JS files automation plays a major role in
+<p>Automation plays a major role in
     development here. <a href="http://www.gruntjs.com" target="_blank">Grunt.js</a> is our tool of choice
     for automation tasks.</p>
 <p>Before any project ends up going on a production server the following tasks should be run on your code :</p>
@@ -116,11 +115,11 @@
     <li>lint js</li>
     <li>concat js files</li>
     <li>minify js files</li>
-    <li>compile LESS files to CSS</li>
     <li>lint css</li>
     <li>concat css files</li>
     <li>minify css files</li>
     <li>lint html</li>
+    <li>minify html</li>
 </ol>
 
 <!-- Sub Heading : Begin -->
@@ -134,8 +133,7 @@
 <h5>Including JS</h5>
 <p>JS files should always be included near the END of a document, unless there is specific reason for
     importing them elsewhere. Keep the number of JS files to a minimum, join them whenever possible. Avoid inline‐JS
-    unless you
-    have a good reason to use it.</p>
+    unless you have a good reason to use it.</p>
 <p>For more information on Javascript please see our <a href="#js-guidelines">Javascript Standards</a>.</p>
 
 <!-- Sub Heading : Begin -->
@@ -321,18 +319,6 @@ Main Section
 /* Sub Section
 ================================== */
 </pre>
-<h5>LESS</h5>
-<pre>
-//
-// ==================================
-// Main Section
-// ==================================
-//
-
-// Sub Section
-// ==================================
-</pre>
-<div class="alert alert-info"><strong>Note:</strong> When LESS is output to CSS these comments will not show. In order to conserve your comments in the final CSS use standard CSS comments.</div>
 <footer>
     <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
 </footer>
@@ -411,12 +397,6 @@ build/
   │   └── */
   ├── js/
   │   └── */
-  ├── less/
-  │   ├── base.less
-  │   ├── normalize.less
-  │   ├── variables.less
-  │   ├── mixins.less
-  │   └── project.less
   ├── */
   └── index.html
 </pre>
@@ -451,12 +431,6 @@ build/
         <td>js/</td>
         <td>Contains javascript files used throughout the site. Create additional folders within this directory as
             needed.
-        </td>
-    </tr>
-    <tr>
-        <td>less/</td>
-        <td>Contains LESS files used to compile stylesheets used throughout the site. For more information
-            on our LESS implementation visit the <a href="#less-guidelines">LESS</a> section.
         </td>
     </tr>
     <tr>
@@ -508,13 +482,8 @@ build/
         </td>
     </tr>
     <tr>
-        <td>CSS Preprocessors</td>
-        <td><a href="http://lesscss.org" target="_blank">LESS</a></td>
-    </tr>
-    <tr>
         <td>Editors</td>
-        <td><a href="http://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a>, <a
-                href="http://www.sublimetext.com/" target="_blank">Sublime Text</a></td>
+        <td><a href="http://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a></td>
     </tr>
     </tbody>
 </table>
@@ -613,13 +582,11 @@ build/
 <p>The concept of semantics goes hand in hand with HTML5. Review the PDF included below, it will help you
     choose what element is most appropriate for your content.</p>
 <a href="img/html5-flowchart.png" class="img-link" target="_blank"><img src="img/html5-flowchart.jpg" alt="HTML5 Flowchart"></a>
-<p>For more information on specific tags and their appropriate use visit <a
-        href="http://html5doctor.com/element-index/">HTML5 Doctor | Element Index</a>.</p>
+<p>For more information on specific tags and their appropriate use visit <a href="http://html5doctor.com/element-index/">HTML5 Doctor | Element Index</a>.</p>
 
 <!-- Sub Heading : Begin -->
 <h3>The &lt;html&gt; tag</h3>
-<p>The HTML5 Boilerplate uses conditional comments to dynamically assign classes to the <code>&lt;html&gt;</code> tag.
-</p>
+<p>The HTML5 Boilerplate uses conditional comments to dynamically assign classes to the <code>&lt;html&gt;</code> tag.</p>
 <pre>
 &lt;!--[if lt IE 7]&gt;
 &lt;html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"&gt; &lt;![endif]--&gt;
@@ -634,12 +601,10 @@ build/
 <h3>The &lt;head&gt; tag</h3>
 <p>The text in these tags is not displayed, but parsable and tells the browsers (or other web services)
     specific information about the page. Simply, it “explains” the page so a browser can understand it.</p>
-<p>Meta tags, style sheets, page title and occasionally javascripts are found within the <code>&lt;head&gt;</code> tag.
-</p>
+<p>Meta tags, style sheets, page title and occasionally javascripts are found within the <code>&lt;head&gt;</code> tag.</p>
 
 <h5>Character Encoding</h5>
-<p>Make sure UTF‐8 is used to encode your files unless you have a specific reason to use something else.
-    Declare it by placing this code in the first line of your head tag.</p>
+<p>Make sure UTF‐8 is used to encode your files unless you have a specific reason to use something else. Declare it by placing this code in the first line of your head tag.</p>
 <pre>
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
@@ -652,19 +617,17 @@ build/
 
 <!-- Sub Heading : Begin -->
 <h5>Common Meta Tags</h5>
-<p>For more information on common meta tags <a href="https://www.google.com/search?q=common%20meta%20tags"
-                                               target="_blank">click here</a>.</p>
+<p>For more information on common meta tags <a href="https://www.google.com/search?q=common%20meta%20tags" target="_blank">click here</a>.</p>
 
 <h5>Mobile Specific Meta Tags</h5>
-<p>For more information on mobile specific meta tags visit the <a href="#mobile-guidelines">Mobile</a> section.
+<p>For more information on mobile specific meta tags visit the <a href="#mobile-guidelines">Mobile</a> section.</p>
 
 <h5>Favicon</h5>
 <pre>&lt;link rel="icon" type="image/png" href="img/favicon.png"&gt;</pre>
 <p>If a favicon is not does not exist request that one be created.</p>
 <!-- Sub Heading : Begin -->
 <h3>Available HTML Tags</h3>
-<p>Although some of the elements listed below can be affected using their respective HTML attribute tags it is
-    considered best practice to use CSS styling whenever possible.</p>
+<p>Although some of the elements listed below can be affected using their respective HTML attribute tags it is considered best practice to use CSS styling whenever possible.</p>
 <table class="option-list">
     <thead>
     <tr>
@@ -1106,231 +1069,7 @@ build/
     <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
 </footer>
 </section>
-<!-- Section : LESS Guidelines -->
-<section id="less-guidelines">
-<!-- Sub Heading : Begin -->
-<header>
-    <h1>LESS</h1>
-</header>
-<!-- Sub Heading : Begin -->
-<h3>What is LESS?</h3>
-<p>CSS Preprocessors extend CSS with dynamic behavior such as variables, mixins, operations and functions.
-    Our preprocessor of choice is LESS, for more information <a href="http://www.lesscss.org/" target="_blank">click
-        here</a>.</p>
 
-<!-- Sub Heading : Begin -->
-<h3>Naming Conventions</h3>
-<p>All applicable CSS naming conventions should be followed in your LESS implementation.</p>
-<p>Use camel case when naming variables:</p>
-<pre>
-@tooltipColor: #fff;
-@tooltipBackground: #000;
-@tooltipArrowWidth: 5px;
-@tooltipArrowColor: @tooltipBackground;
-</pre>
-<!-- Sub Heading : Begin -->
-<h3>File Structure</h3>
-<p>There are five .less files that are included in our default templates:</p>
-<ul>
-    <li>normalize.less</li>
-    <li>variables.less</li>
-    <li>mixins.less</li>
-    <li>base.less</li>
-    <li>project.less</li>
-</ul>
-
-<h5>variables.less</h5>
-<p>All variables to be used within your LESS implementation should be defined in this file.
-    Declarations should be in the following order :</p>
-<ul>
-    <li>Colors</li>
-    <li>Background/ Text Colors</li>
-    <li>Link Colors</li>
-    <li>Typography</li>
-    <li>Project Specific Variables</li>
-</ul>
-
-<pre>
-// -------------------------
-// Variables
-// -------------------------
-
-// Greys
-// -------------------------
-@grey1: darken(#fff, 10%);
-@grey2: darken(@grey1, 10%);
-...
-
-// Accent colors
-// -------------------------
-@blue:  #049cdb;
-@green: #46a546;
-@red: #9d261d;
-...
-
-// Scaffolding
-// -------------------------
-@bodyBackground: @white;
-@textColor: @grey8;
-
-// Links
-// -------------------------
-@linkColor: darken(@red, 10%);
-@linkColorHover: darken(@linkColor, 15%);
-@linkColorVisited: darken(@linkColor, 25%);
-
-// Typography
-// -------------------------
-@sansFontFamily: "Helvetica Neue", Helvetica, Arial, sans-serif;
-@serifFontFamily: Georgia, "Times New Roman", Times, serif;
-@monoFontFamily: Monaco, Menlo, Consolas, "Courier New", monospace;
-
-@baseFontSize: 14px;
-@baseFontFamily: @sansFontFamily;
-@baseLineHeight: 20px;
-@altFontFamily: @serifFontFamily;
-
-@headingsFontFamily: inherit; // empty to use BS default, @baseFontFamily
-@headingsFontWeight: bold;    // instead of browser default, bold
-@headingsColor: @blue; // empty to use BS default, @textColor
-
-// Project Specific
-// -------------------------
-...
-</pre>
-
-<h5>base.less</h5>
-<p>This file is used to combine various LESS files. It provides should provide common styles and
-    variables that will be used throughout your LESS implementation. Ensure that any styles included
-    within base.less will be used throughout the site. By default base.less looks like this:</p>
-<pre>
-// CSS Reset
-@import "normalize.less"; // Maintain consistency across browsers
-
-// Core variables and mixins
-@import "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import "mixins.less";
-</pre>
-<h5>project.less</h5>
-<pre>
-@import "base.less";
-
-// Project specific code
-...
-</pre>
-<p>By using this approach we can determine the order in which our LESS files will be combined.</p>
-<div class="alert alert-info"><strong>Note:</strong> Need to add more information regarding the splitting of files.
-</div>
-
-<!-- Sub Heading : Begin -->
-<h3>Formatting</h3>
-<h5>Mixins</h5>
-<p>Group mixins toward the top of your style declarations. This makes it easy for other developers to
-    see what mixins are being applied. It also allows for values to be overridden if necessary.</p>
-<pre class="lang-css">
-section {
-    .rounded-border(5px);
-
-    border-color:#ddd;
-}
-.rounded-border(@radius) {
-  border: 1px solid #999;
-  -webkit-border-radius: @radius @radius @radius @radius;
-  -moz-border-radius: @radius @radius @radius @radius;
-  border-radius: @radius @radius @radius @radius;
-}
-</pre>
-
-<h5>Helpful Built-in LESS functions</h5>
-<table class="option-list">
-    <thead>
-    <tr>
-        <th>Function</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>e(str)</td>
-        <td>returns a string without the surrounding quotes. See String Unquoting</td>
-    </tr>
-    <tr>
-        <td>floor(number)</td>
-        <td>returns the floor of a numerical input</td>
-    </tr>
-    <tr>
-        <td>round(number)</td>
-        <td>returns the rounded value of numerical input</td>
-    </tr>
-    <tr>
-        <td>lighten(color, percent)</td>
-        <td>lightens color by percent and returns it</td>
-    </tr>
-    <tr>
-        <td>darken(color, percent)</td>
-        <td>darkens color by percent and returns it</td>
-    </tr>
-    <tr>
-        <td>saturate(color, percent)</td>
-        <td>saturates color by percent and returns it</td>
-    </tr>
-    <tr>
-        <td>desaturate(color, percent)</td>
-        <td>desaturates color by percent and returns it</td>
-    </tr>
-    <tr>
-        <td>fadein(color, percent)</td>
-        <td>makes color less transparent by percent and returns it</td>
-    </tr>
-    <tr>
-        <td>fadeout(color, percent)</td>
-        <td>makes color more transparent by percent and returns it</td>
-    </tr>
-    <tr>
-        <td>spin(color, amount)</td>
-        <td>returns a color with amount degrees added to hue</td>
-    </tr>
-    <tr>
-        <td>fade(color, amount)</td>
-        <td>returns a color with the alpha set to amount</td>
-    </tr>
-    <tr>
-        <td>hue(color)</td>
-        <td>returns the hue of color</td>
-    </tr>
-    <tr>
-        <td>saturation(color)</td>
-        <td>returns the saturation of color</td>
-    </tr>
-    <tr>
-        <td>lightness(color)</td>
-        <td>returns the lightness of color</td>
-    </tr>
-    <tr>
-        <td>alpha(color)</td>
-        <td>returns the alpha value of color or 1.0 if it doesn’t have an alpha</td>
-    </tr>
-    <tr>
-        <td>percentage(number)</td>
-        <td>converts a floating point number to a percentage, e.g. 0.65 –> 65%</td>
-    </tr>
-    <tr>
-        <td>mix(color1, color1, percent)</td>
-        <td>mixes two colors by percentage where 100% keeps all of color1, and 0% keeps all of color2. Will take into
-            account the alpha of the colors if it exists.
-        </td>
-    </tr>
-    <tr>
-        <td>rgbahex(color)</td>
-        <td>returns a string containing 4 part hex color.</td>
-    </tr>
-    </tbody>
-</table>
-
-<footer>
-    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
-</footer>
-</section>
 <!-- Section : JS Guidelines -->
 <section id="js-guidelines">
 <header>
