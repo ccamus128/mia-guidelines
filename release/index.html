@@ -36,7 +36,7 @@
                 <ul class="nav sd-topnav-inner">
                 </ul>
             </div>
-            <span class="last-updated hidden-phone">Last Updated: 3.12.2013</span>
+            <span class="last-updated hidden-phone">Last Updated: 3.18.2013</span>
             <!--/.nav-collapse -->
         </div>
     </div>
@@ -850,11 +850,49 @@ build/
     <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
 </footer>
 </section>
+
+
 <!-- Section : CSS Guidelines -->
 <section id="css-guidelines">
 <header>
     <h1>CSS</h1>
 </header>
+
+<!-- Sub Heading : Begin -->
+<h3>Organization and Structure</h3>
+<p>Follow the SMACSS guidelines to organize and structure your CSS code. SMACSS categorizes CSS rules into one of five basic categories.</p>
+<table class="option-list">
+    <thead>
+    <tr>
+        <th>Category</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Base Rules</td>
+        <td>Base rules are the defaults. They are almost exclusively single element selectors but it could include attribute selectors, pseudo-class selectors, child selectors or sibling selectors. Essentially, a base style says that wherever this element is on the page, it should look like this.</td>
+    </tr>
+    <tr>
+        <td>Layout Rules</td>
+        <td>Layout rules divide the page into sections. Layouts hold one or more modules together.</td>
+    </tr>
+    <tr>
+        <td>Modules</td>
+        <td>Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on.</td>
+    </tr>
+    <tr>
+        <td>State Rules</td>
+        <td>State rules are ways to describe how our modules or layouts will look when in a particular state. Is it hidden or expanded? Is it active or inactive? They are about describing how a module or layout looks on screens that are smaller or bigger. They are also about describing how a module might look in different views like the home page or the inside page.</td>
+    </tr>
+    <tr>
+        <td>Theme Rules</td>
+        <td>Theme rules are similar to state rules in that they describe how modules or layouts might look. They are meant to be interchangable, most sites we build don’t require a layer of theming but it is good to be aware of it.</td>
+    </tr>
+    </tbody>
+</table>
+<p>We cannot cover SMACSS in it's entirety in this document so refer to the pdf below or <a href="http://smacss.com/" target="_blank">smacss.com</a> for further details.</p>
+<a href="pdf/SMACSS.pdf"><img src="img/smacss-cover.png"></a>
 
 <!-- Sub Heading : Begin -->
 <h3>How to write good CSS (Selectors)</h3>
@@ -872,8 +910,7 @@ build/
     <li>Avoid the * selector unless you can explain why you MUST use it.</li>
     <li>Avoid the !important unless you can explain why you MUST use it.</li>
 </ul>
-<p>There is much to be said around how to architect the HTML and subsequently the CSS for a larger site. Here are a few
-    good pointers to keep in mind:</p>
+<p>There is much to be said around how to architect the HTML and subsequently the CSS for a larger site. Here are a few good pointers to keep in mind:</p>
 <ol>
     <li>
         <strong>Find patterns in different modules and abstract them out.</strong><br>
@@ -963,8 +1000,7 @@ build/
 }
 </pre>
 <h5>Semi-Colons</h5>
-<p>Always use a trailing semi-colon on the last declaration in a ruleset to avoid any potential confusion
-    and syntax errors over the life of the document.</p>
+<p>Always use a trailing semi-colon on the last declaration in a ruleset to avoid any potential confusion and syntax errors over the life of the document.</p>
 
 <!-- Sub Heading : Begin -->
 <h3>Formatting</h3>
@@ -1070,7 +1106,7 @@ build/
 </footer>
 </section>
 
-<!-- Section : JS Guidelines -->
+<!-- Section : JavaScript Guidelines -->
 <section id="js-guidelines">
 <header>
     <h1>JavaScript</h1>
@@ -1317,33 +1353,34 @@ var total = add(5, 10);
     <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
 </footer>
 </section>
+
 <!-- Section : jQuery Guidelines -->
 <section id="jquery-guidelines">
-<header>
-    <h1>jQuery</h1>
-</header>
+    <header>
+        <h1>jQuery</h1>
+    </header>
 
-<!-- Sub Heading : Begin -->
-<h3>Best Practices</h3>
+    <!-- Sub Heading : Begin -->
+    <h3>Best Practices</h3>
 
-<h5>$(window).load()</h5>
-<p>There is a temptation among jQuery developers to hook everything into the <code>$(document).ready</code> pseudo
-    event.
-    After all, it is used in most examples you will find. Although <code>$(document).ready</code> is incredibly useful,
-    it occurs during page render while objects are still downloading. If you notice your page stalling
-    while loading, all those <code>$(document).ready</code> functions could be the reason why. You can reduce CPU
-    utilization during the page load by binding your jQuery functions to the <code>$(window).load</code> event,
-    which occurs after all objects called by the HTML (including <code>&lt;iframe&gt;</code> content) have downloaded.
-</p>
+    <h5>$(window).load()</h5>
+    <p>There is a temptation among jQuery developers to hook everything into the <code>$(document).ready</code> pseudo
+        event.
+        After all, it is used in most examples you will find. Although <code>$(document).ready</code> is incredibly useful,
+        it occurs during page render while objects are still downloading. If you notice your page stalling
+        while loading, all those <code>$(document).ready</code> functions could be the reason why. You can reduce CPU
+        utilization during the page load by binding your jQuery functions to the <code>$(window).load</code> event,
+        which occurs after all objects called by the HTML (including <code>&lt;iframe&gt;</code> content) have downloaded.
+    </p>
 <pre class="good">
 $(window).load(function(){
     // jQuery functions to initialize after the page has loaded.
 });
 </pre>
-<h5>Descend From an #id</h5>
-<p>The fastest selector in jQuery is the ID selector <code>$('#someid')</code>. This is because it maps
-    directly to a native JavaScript method, <code>getElementById()</code>. Whenever possible descend
-    from an id, especially when querying for multiple elements.</p>
+    <h5>Descend From an #id</h5>
+    <p>The fastest selector in jQuery is the ID selector <code>$('#someid')</code>. This is because it maps
+        directly to a native JavaScript method, <code>getElementById()</code>. Whenever possible descend
+        from an id, especially when querying for multiple elements.</p>
 <pre class="bad">
 var buttons = $('.button');
 </pre>
@@ -1351,28 +1388,28 @@ var buttons = $('.button');
 var buttons = $('#content .button');
 </pre>
 
-<h5>Use Tags Before Classes</h5>
-<p>The second fastest selector in jQuery is the Tag selector <code>$('head')</code>. Again, this is
-    because it maps to a native JavaScript method, <code>getElementsByTagName()</code>. For additional
-    efficiency include and id as well.</p>
+    <h5>Use Tags Before Classes</h5>
+    <p>The second fastest selector in jQuery is the Tag selector <code>$('head')</code>. Again, this is
+        because it maps to a native JavaScript method, <code>getElementsByTagName()</code>. For additional
+        efficiency include and id as well.</p>
 <pre class="good">
 var content = $('input.on');
 var content = $('#content input.on');
 </pre>
-<h5>Use Sub-queries</h5>
-<p>jQuery allows us to run additional selector operations on a wrapped set. This reduces performance
-    overhead on subsequent selections since we already grabbed and stored the parent object in a local variable.</p>
+    <h5>Use Sub-queries</h5>
+    <p>jQuery allows us to run additional selector operations on a wrapped set. This reduces performance
+        overhead on subsequent selections since we already grabbed and stored the parent object in a local variable.</p>
 <pre class="good">
 var $traffic_light = $('#traffic_light'),
     $active_light = $traffic_light.find('input.on'),
     $inactive_lights = $traffic_light.find('input.off');
 </pre>
 
-<h5>Cache query selector results</h5>
-<p>Way more important than finding the most efficient selector is caching your results for repeating
-    tasks. Instead of traversing the same DOM tree branch over and over again, you should cache the
-    results on initialization (if static) or after a related DOM update (i.e. after AJAX insert). Using
-    jQuery here as an example, but the same is true for native JS or any other library/framework.</p>
+    <h5>Cache query selector results</h5>
+    <p>Way more important than finding the most efficient selector is caching your results for repeating
+        tasks. Instead of traversing the same DOM tree branch over and over again, you should cache the
+        results on initialization (if static) or after a related DOM update (i.e. after AJAX insert). Using
+        jQuery here as an example, but the same is true for native JS or any other library/framework.</p>
 <pre class="bad">
 // traversing for "#myList" 2x on every click
 $("#myButton").on('click', function (e) {
@@ -1394,8 +1431,8 @@ $("#myButton").on('click', function (e) {
     }
 });
 </pre>
-<h5>Chain multiple operations</h5>
-<p>Chaining operations in jQuery is more efficient than multiple operations against one object.</p>
+    <h5>Chain multiple operations</h5>
+    <p>Chaining operations in jQuery is more efficient than multiple operations against one object.</p>
 <pre class="bad">
 // instead of multiple operations on one HTML object ...
 var myList = $("#myList");
@@ -1409,9 +1446,9 @@ $("#myList").hide()
     .css("background-color","#bada55")
     .show();
 </pre>
-<h5>Limit Direct DOM Manipulation</h5>
-<p>The basic idea here is to create exactly what you need in memory, and then update the DOM. This is not
-    a jQuery best practice, but a must for efficient JavaScript. Direct DOM manipulation is slow. </p>
+    <h5>Limit Direct DOM Manipulation</h5>
+    <p>The basic idea here is to create exactly what you need in memory, and then update the DOM. This is not
+        a jQuery best practice, but a must for efficient JavaScript. Direct DOM manipulation is slow. </p>
 <pre class="bad">
 var top_100_list = [...], // assume this has 100 unique strings
 $mylist = $('#mylist'); // jQuery selects our &lt;ul&gt; element
@@ -1433,11 +1470,11 @@ top_100_li += '&lt;li&gt;' + top_100_list[i] + '&lt;/li&gt;';
 $mylist.html(top_100_li);
 </pre>
 
-<h5>Leverage Bubbling</h5>
-<p>Unless told otherwise, every event (e.g. click, mouseover, etc.) in JavaScript “bubbles” up the DOM
-    tree to parent elements. This is incredibly useful when we want many elements (nodes) to call the
-    same function. Instead of binding an event listener function to many nodes—very inefficient—you can
-    bind it once to their parent, and have it figure out which node triggered the event.</p>
+    <h5>Leverage Bubbling</h5>
+    <p>Unless told otherwise, every event (e.g. click, mouseover, etc.) in JavaScript “bubbles” up the DOM
+        tree to parent elements. This is incredibly useful when we want many elements (nodes) to call the
+        same function. Instead of binding an event listener function to many nodes—very inefficient—you can
+        bind it once to their parent, and have it figure out which node triggered the event.</p>
 <pre class="bad">
 $('#myList li).bind('click', function(){
     $(this).addClass('clicked');
@@ -1454,10 +1491,11 @@ $('#myList).bind('click', function(e){
     }
 });
 </pre>
-<footer>
-    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
-</footer>
+    <footer>
+        <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+    </footer>
 </section>
+
 </div>
 </div>
 </div>
