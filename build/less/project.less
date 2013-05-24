@@ -1,11 +1,8 @@
 @import "variables.less"; // Modify this for custom colors, font-sizes, etc
 
 
-/*
----------------------------------------------
-Global Elements
----------------------------------------------
-*/
+/* Global Elements
+============================================= */
 body {
   padding-top: 0;
   padding-bottom: 30px;
@@ -42,11 +39,8 @@ pre {
     left: -17px;
   }
 }
-/*
----------------------------------------------
-Global Classes
----------------------------------------------
-*/
+/* Global Classes
+============================================= */
 .sn-logo {
   float: left;
   width: 116px;
@@ -178,14 +172,11 @@ section {
   }
 }
 
-/*
----------------------------------------------
-Lists
----------------------------------------------
-*/
+/* Lists
+============================================= */
 
 /* Alternating List
----------------------------------------------*/
+--------------------------------------------- */
 
 .alternating-list {
   margin-left: 0;
@@ -208,7 +199,7 @@ Lists
 }
 
 /* Option Table
----------------------------------------------*/
+--------------------------------------------- */
 
 .option-list {
   border-collapse: separate; /* IE7 and lower */
@@ -298,11 +289,8 @@ Lists
   }
 }
 
-/*
----------------------------------------------
-Fonts
----------------------------------------------
-*/
+/* Fonts
+============================================= */
 
 @font-face {
   font-family: 'broadway';
@@ -312,11 +300,9 @@ Fonts
   src: url('fonts/broadway.eot?#iefix') format('embedded-opentype'), url('fonts/broadway.woff') format('woff'), url('fonts/broadway.ttf') format('truetype'), url('fonts/broadway.svg#broadway_btregular') format('svg');
 }
 
-/*
----------------------------------------------
-Media Queries
----------------------------------------------
-*/
+/* Media Queries
+============================================= */
+
 
 @media (min-width: 980px) {
   .sd-sidenav-inner {
@@ -337,21 +323,24 @@ Media Queries
     margin-left: -10px;
   }
 }
-
 @media (max-width: 767px) {
   .hero {
     margin: 0 -20px;
+
+    h1 {
+      font-size: 50pt;
+      line-height: 40pt;
+      letter-spacing: 3pt;
+    }
   }
   .navbar {
     margin: 0 -20px;
   }
 }
 
-/*
----------------------------------------------
-Mixins
----------------------------------------------
-*/
+
+/* Mixins
+============================================= */
 
 .border-radius(@tl, @tr, @br, @bl) {
   -webkit-border-radius: @arguments;

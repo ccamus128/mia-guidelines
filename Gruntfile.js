@@ -1,12 +1,12 @@
 module.exports = function (grunt) {
 
-    var data = require("./package.json"),
+    var data = require('./package.json'),
+        cerberus = require('./cerberus'),
         lessOptions = {
             compress:false
         };
 
-    // Project configuration.
-    grunt.initConfig({
+    var config = {
         data:grunt.file.readJSON('package.json'),
         /*
         File Operation Tasks
@@ -14,20 +14,20 @@ module.exports = function (grunt) {
         watch:{
             html:{
                 files:data.paths.source.html,
-                tasks:"inc"
+                tasks:'inc'
             },
             less:{
                 files:data.paths.source.less,
-                tasks:"recess"
+                tasks:'recess'
             }
         },
         copy:{
             release:{
                 files:[
                     {
-                        cwd:"<%= data.paths.folder.build %>",
-                        src:["**/*"],
-                        dest:"<%= data.paths.folder.release %>",
+                        cwd:'<%= data.paths.folder.build %>',
+                        src:['**/*'],
+                        dest:'<%= data.paths.folder.release %>',
                         expand:true
                     }
                 ]
@@ -35,18 +35,18 @@ module.exports = function (grunt) {
         },
         clean:{
             release:data.paths.excludes,
-            prepareRelease:"<%= data.paths.folder.release %>",
-            prepareTag:"<%= data.paths.output.tag %>"
+            prepareRelease:'<%= data.paths.folder.release %>',
+            prepareTag:'<%= data.paths.output.tag %>'
         },
         compress:{
             tag:{
                 options: {
-                    archive:"<%= data.paths.output.tag %>"
+                    archive:'<%= data.paths.output.tag %>'
                 },
                 files:{
-                    cwd:"<%= data.paths.folder.release %>",
-                    src:"**/*",
-                    dest:"<%= data.paths.folder.tag %>"
+                    cwd:'<%= data.paths.folder.release %>',
+                    src:'**/*',
+                    dest:'<%= data.paths.folder.tag %>'
                 }
             }
         },
@@ -55,9 +55,9 @@ module.exports = function (grunt) {
          */
         inc:{
             index:{
+                cwd:data.paths.folder.build,
                 src:data.paths.source.html,
-                dest:data.paths.folder.release,
-                root:data.paths.folder.build
+                dest:data.paths.folder.release
             }
         },
         modified:{
@@ -112,17 +112,33 @@ module.exports = function (grunt) {
                 "$":true
             }
         }
-    });
-    grunt.loadTasks("tasks");
-    grunt.loadNpmTasks("grunt-contrib-less");
-    grunt.loadNpmTasks("grunt-contrib-copy");
-    grunt.loadNpmTasks("grunt-contrib-clean");
-    grunt.loadNpmTasks("grunt-contrib-compress");
+    };
 
-    grunt.registerTask("default", "lint release");
+    // Create the concat task by grouping based on naming conventions
+    config.concat = cerberus.grouper({
+            src:config.data.paths.folder.build + "js/**/*.*",
+            dest:config.data.paths.folder.build + "js/concat/",
+            delimiter:"-"
+        });
 
-    grunt.registerTask("build", ["less"]);
-    grunt.registerTask("release", ["build", "modified", "clean:prepareRelease", "copy:release", "clean:release", "inc"]);
-    grunt.registerTask("tag", ["clean:prepareTag", "compress:tag"]);
+    // Load custom tasks
+    grunt.loadTasks('tasks');
+
+    // Load npm tasks
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-compress');
+
+    // Load register tasks
+    grunt.registerTask('default', ['lint', 'release']);
+
+    grunt.registerTask('build', ['less', 'concat']);
+    grunt.registerTask('release', ['build', 'modified', 'clean:prepareRelease', 'copy:release', 'clean:release', 'inc']);
+    grunt.registerTask('tag', ['clean:prepareTag', 'compress:tag']);
+
+    // Kick-off Grunt
+    grunt.initConfig(config);
 };
 

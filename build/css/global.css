@@ -1,8 +1,5 @@
-/*
----------------------------------------------
-Global Elements
----------------------------------------------
-*/
+/* Global Elements
+============================================= */
 body {
   padding-top: 0;
   padding-bottom: 30px;
@@ -33,11 +30,8 @@ pre i {
   top: 5px;
   left: -17px;
 }
-/*
----------------------------------------------
-Global Classes
----------------------------------------------
-*/
+/* Global Classes
+============================================= */
 .sn-logo {
   float: left;
   width: 116px;
@@ -163,13 +157,10 @@ section img {
   -moz-border-radius: 4px 4px 4px 4px;
   border-radius: 4px 4px 4px 4px;
 }
-/*
----------------------------------------------
-Lists
----------------------------------------------
-*/
+/* Lists
+============================================= */
 /* Alternating List
----------------------------------------------*/
+--------------------------------------------- */
 .alternating-list {
   margin-left: 0;
   list-style: none;
@@ -187,7 +178,7 @@ Lists
   background-color: #ffffff;
 }
 /* Option Table
----------------------------------------------*/
+--------------------------------------------- */
 .option-list {
   border-collapse: separate;
   /* IE7 and lower */
@@ -277,11 +268,8 @@ Lists
 .list-2col li:last-child {
   margin-bottom: 20px;
 }
-/*
----------------------------------------------
-Fonts
----------------------------------------------
-*/
+/* Fonts
+============================================= */
 @font-face {
   font-family: 'broadway';
   font-style: normal;
@@ -289,11 +277,8 @@ Fonts
   src: url('fonts/broadway.eot');
   src: url('fonts/broadway.eot?#iefix') format('embedded-opentype'), url('fonts/broadway.woff') format('woff'), url('fonts/broadway.ttf') format('truetype'), url('fonts/broadway.svg#broadway_btregular') format('svg');
 }
-/*
----------------------------------------------
-Media Queries
----------------------------------------------
-*/
+/* Media Queries
+============================================= */
 @media (min-width: 980px) {
   .sd-sidenav-inner {
     width: 230px;
@@ -316,15 +301,17 @@ Media Queries
   .hero {
     margin: 0 -20px;
   }
+  .hero h1 {
+    font-size: 50pt;
+    line-height: 40pt;
+    letter-spacing: 3pt;
+  }
   .navbar {
     margin: 0 -20px;
   }
 }
-/*
----------------------------------------------
-Mixins
----------------------------------------------
-*/
+/* Mixins
+============================================= */
 .miami-gradient {
   background: #00ffff;
   background: -moz-linear-gradient(top, #00ffff 0%, #ff00ff 100%);

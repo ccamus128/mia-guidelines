@@ -1,10 +1,3 @@
-/**
- * Created with JetBrains WebStorm.
- * User: alex.toledo
- * Date: 11/16/12
- * Time: 8:44 PM
- * To change this template use File | Settings | File Templates.
- */
 module.exports = function(grunt) {
     grunt.registerMultiTask("modified", "Update the modified date of the document", function(){
         var date = new Date(),

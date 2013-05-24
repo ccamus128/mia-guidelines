@@ -1,50 +1,49 @@
 {
-  "name": "test",
-  "description": "Best project ever!",
-  "main": "lib",
-  "version": "0.2.0",
-  "homepage": "https://github.com/DoubleDome",
-  "author": {
-    "name": "Alex Toledo"
-  },
-  "paths": {
-    "source": {
-      "index": "<%= data.paths.folder.build %>/index.html",
-      "html": "<%= data.paths.folder.build %>/**/*.html",
-      "project": "<%= data.paths.folder.build %>less/project.less",
-      "bootstrap": "<%= data.paths.folder.build %>less/bootstrap.less",
-      "bootstrapResponsive": "<%= data.paths.folder.build %>less/responsive.less",
-      "css": "<%= data.paths.folder.build %>css/**/*.css",
-      "js": "<%= data.paths.folder.build %>lib/**/*.js"
+    "name": "mia-guidelines",
+    "description": "Best project ever!",
+    "version": "0.2.0",
+    "homepage": "https://github.com/DoubleDome",
+    "author": {
+        "name": "Alex Toledo"
     },
-    "folder": {
-      "build": "build/",
-      "release": "release/",
-      "tags": "tags/",
-      "tag": "tag-<%= data.version %>"
+    "paths": {
+        "source": {
+            "index": "<%= data.paths.folder.build %>/index.html",
+            "html": "<%= data.paths.folder.build %>/**/*.html",
+            "project": "<%= data.paths.folder.build %>less/project.less",
+            "bootstrap": "<%= data.paths.folder.build %>less/bootstrap.less",
+            "bootstrapResponsive": "<%= data.paths.folder.build %>less/responsive.less",
+            "css": "<%= data.paths.folder.build %>css/**/*.css",
+            "js": "<%= data.paths.folder.build %>js/**/*.js"
+        },
+        "folder": {
+            "build": "build/",
+            "release": "release/",
+            "tags": "tags/",
+            "tag": "tag-<%= data.version %>"
+        },
+        "output": {
+            "index": "<%= data.paths.folder.release %>/index.html",
+            "project": "<%= data.paths.folder.build %>css/global.css",
+            "bootstrap": "<%= data.paths.folder.build %>css/bootstrap.css",
+            "bootstrapResponsive": "<%= data.paths.folder.build %>css/bootstrap-responsive.css",
+            "tag": "<%= data.paths.folder.tags %>tag-<%= data.version %>.zip"
+        },
+        "excludes": [
+            "<%= data.paths.folder.release %>test",
+            "<%= data.paths.folder.release %>dist",
+            "<%= data.paths.folder.release %>*.styl",
+            "<%= data.paths.folder.release %>**/*.sass",
+            "<%= data.paths.folder.release %>**/less",
+            "<%= data.paths.folder.release %>**/*.coffee",
+            "<%= data.paths.folder.release %>*.DS_Store"
+        ]
     },
-    "output": {
-      "index": "<%= data.paths.folder.release %>/index.html",
-      "project": "<%= data.paths.folder.build %>css/global.css",
-      "bootstrap": "<%= data.paths.folder.build %>css/bootstrap.css",
-      "bootstrapResponsive": "<%= data.paths.folder.build %>css/bootstrap-responsive.css",
-      "tag": "<%= data.paths.folder.tags %>tag-<%= data.version %>.zip"
-    },
-    "excludes": [
-      "<%= data.paths.folder.release %>test",
-      "<%= data.paths.folder.release %>dist",
-      "<%= data.paths.folder.release %>*.styl",
-      "<%= data.paths.folder.release %>**/*.sass",
-      "<%= data.paths.folder.release %>**/less",
-      "<%= data.paths.folder.release %>**/*.coffee",
-      "<%= data.paths.folder.release %>*.DS_Store"
-    ]
-  },
-  "devDependencies": {
-    "grunt": "~0.4.0",
-    "grunt-contrib-copy": "~0.4.0",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-compress": "~0.4.1",
-    "grunt-contrib-less": "~0.5.0"
-  }
+    "devDependencies": {
+        "grunt": "~0.4.0",
+        "grunt-contrib-copy": "~0.4.0",
+        "grunt-contrib-clean": "~0.4.0",
+        "grunt-contrib-compress": "~0.4.1",
+        "grunt-contrib-less": "~0.5.0"
+    }
 }
