@@ -13,4 +13,4 @@ module.exports = function(grunt) {
         }
         grunt.file.write(path, output);
     });
-}
+};

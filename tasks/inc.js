@@ -17,6 +17,7 @@ Valid include directives:
 module.exports = function(grunt) {
 
     grunt.registerMultiTask("inc", "Simple includes for html", function() {
+        console.log(this.data.src);
         var path = require("path"),
             incHTML = /(<!--\s#include\s+['"](.*)['"]\s-->)/g,
             incNET = /(<!--\s+#Include\svirtual=['"](.*)['"]\s+-->)/g,
@@ -61,4 +62,4 @@ module.exports = function(grunt) {
         var index = path.lastIndexOf("/");
         return ((path.length - 1) === index) ? "dir" : "file";
     }
-}
+};
