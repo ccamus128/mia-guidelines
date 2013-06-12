@@ -13,12 +13,12 @@ module.exports = function (grunt) {
          */
         watch:{
             html:{
-                files:data.paths.source.html,
-                tasks:'inc'
+                files:'<%= data.paths.source.html %>',
+                tasks:['inc']
             },
             less:{
-                files:data.paths.source.less,
-                tasks:'recess'
+                files:'<%= data.paths.source.less %>',
+                tasks:['less']
             }
         },
         copy:{
@@ -61,7 +61,7 @@ module.exports = function (grunt) {
             }
         },
         modified:{
-            src:data.paths.source.index
+            src:data.paths.source.html
         },
         /*
          CSS Tasks
@@ -84,7 +84,7 @@ module.exports = function (grunt) {
             }
         },
         /*
-        JS Tasks
+
          */
         // lint and jshint objects work in conjunction in the 'lint' task
         lint:{
@@ -106,39 +106,60 @@ module.exports = function (grunt) {
                 es5:true
             },
             globals:{
-                "console":true,
-                "_":true,
-                "jQuery":true,
-                "$":true
+                'console':true,
+                '_':true,
+                'jQuery':true,
+                '$':true
+            }
+        },
+        /* Preview Server
+        =================================================== */
+        connect:{
+            build:{
+                options:{
+                    base:'<%= data.paths.folder.build %>',
+                    port:'<%= data.server.port.build %>',
+                    keepalive:true
+                }
+            },
+            release:{
+                options:{
+                    base:'<%= data.paths.folder.release %>',
+                    port:'<%= data.server.port.release %>',
+                    keepalive:true
+                }
             }
         }
     };
 
     // Create the concat task by grouping based on naming conventions
-    config.concat = cerberus.grouper({
-            src:config.data.paths.folder.build + "js/**/*.*",
-            dest:config.data.paths.folder.build + "js/concat/",
-            delimiter:"-"
-        });
+    // config.concat = cerberus.grouper({
+    //         src:config.data.paths.folder.commonBuild + 'js/**/*.*',
+    //         dest:config.data.paths.folder.commonBuild + 'js/concat/',
+    //         delimiter:'-'
+    //     });
 
     // Load custom tasks
     grunt.loadTasks('tasks');
 
-    // Load npm tasks
+    // Load NPM tasks
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
-    // Load register tasks
+    // Register tasks
     grunt.registerTask('default', ['lint', 'release']);
 
     grunt.registerTask('build', ['less', 'concat']);
-    grunt.registerTask('release', ['build', 'modified', 'clean:prepareRelease', 'copy:release', 'clean:release', 'inc']);
+    grunt.registerTask('release', ['clean:prepareRelease', 'copy:release', 'clean:release', 'inc']);
     grunt.registerTask('tag', ['clean:prepareTag', 'compress:tag']);
 
     // Kick-off Grunt
     grunt.initConfig(config);
 };
+
 
