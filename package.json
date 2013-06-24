@@ -2,55 +2,17 @@
   "name": "mia-guidelines",
   "description": "Best project ever!",
   "version": "0.2.0",
+
   "homepage": "https://github.com/DoubleDome",
-  "author": {
-    "name": "Alex Toledo"
-  },
-  "server":{
-      "port":{
-          "build":"1550",
-          "release":"1551"
-      }
-  },
-  "paths": {
-    "folder": {
-      "build": "build/",
-      "commonBuild": "build/common/",
-      "release": "release/",
-      "commonRelease": "release/common/",
-      "tags": "tags/"
-    },
-    "source": {
-      "html": "<%= data.paths.folder.build %>**/_*.html",
-      "less": "<%= data.paths.folder.build %>**/*.less",
-      "project": "<%= data.paths.folder.commonBuild %>less/project.less",
-      "bootstrap": "<%= data.paths.folder.commonBuild %>less/bootstrap.less",
-      "bootstrapResponsive": "<%= data.paths.folder.commonBuild %>less/responsive.less",
-      "css": "<%= data.paths.folder.commonBuild %>css/**/*.css",
-      "js": "<%= data.paths.folder.commonBuild %>js/**/*.js"
-    },
-    "output": {
-      "project": "<%= data.paths.folder.commonBuild %>css/global.css",
-      "bootstrap": "<%= data.paths.folder.commonBuild %>css/bootstrap.css",
-      "bootstrapResponsive": "<%= data.paths.folder.commonBuild %>css/bootstrap-responsive.css",
-      "tag": "<%= data.paths.folder.tags %>tag-<%= data.version %>.zip"
-    },
-    "excludes": [
-      "<%= data.paths.folder.release %>test",
-      "<%= data.paths.folder.release %>dist",
-      "<%= data.paths.folder.release %>*.styl",
-      "<%= data.paths.folder.release %>**/sass",
-      "<%= data.paths.folder.release %>**/less",
-      "<%= data.paths.folder.release %>**/inc",
-      "<%= data.paths.folder.release %>**/*.coffee",
-      "<%= data.paths.folder.release %>*.DS_Store"
-    ]
-  },
+  "author": "Alex Toledo",
+
+  "main": "gruntfile.js",
+  "readmeFilename": "README.md",
+
   "devDependencies": {
     "grunt": "~0.4.0",
     "grunt-contrib-copy": "~0.4.0",
     "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-compress": "~0.4.1",
     "grunt-contrib-less": "~0.5.0",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-watch": "~0.4.3",
