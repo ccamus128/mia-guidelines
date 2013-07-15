@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Miami QA Guidelines</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no;">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/common/css/bootstrap.css">
+    <link rel="stylesheet" href="/common/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="/common/lib/prettify/prettify.css">
+    <link rel="stylesheet" href="/common/css/global.css">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/common/img/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/common/img/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/common/img/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/common/img/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/common/img/icons/apple-touch-icon-57-precomposed.png">
+</head>
+<body data-spy="scroll" data-target=".sd-sidenav-outer" data-offset="125" id="top">
+<nav class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <span class="sn-logo"></span>
+            <div class="nav-collapse visible-phone">
+                <ul class="nav sd-topnav-inner">
+                </ul>
+            </div>
+            <span class="last-updated hidden-phone">Last Updated: 5.21.2013</span>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</nav>
+<header class="hero">
+    <div class="container hero-inner">
+        <h1>Miami</h1>
+        <h4>QA Guidelines</h4>
+    </div>
+</header>
+<div class="container page-content">
+<div class="row">
+<div class="span3 sd-sidenav-outer visible-desktop visible-tablet">
+    <ul class="nav nav-list sd-sidenav-inner">
+        <li><a href="#top">Introduction <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#receiving-a-task">Receiving A Task<i class="icon-chevron-right"></i></a></li>
+        <li><a href="#test-cases">Test Cases<i class="icon-chevron-right"></i></a></li>
+        <li><a href="#attask">AtTask <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#testing-reference">Testing reference <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#environments">Environments <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#qa-default-browsers">QA Default browsers <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#qa-tablets-mobile-devices">QA Tablets &amp; Mobile Devices <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#types-of-pages">Types of Pages <i class="icon-chevron-right"></i></a></li>
+    </ul>
+</div>
+<div class="span9 section-container">
+
+<!-- Section : Introduction -->
+<section id="introduction">
+    <header>
+        <h1>Introduction</h1>
+    </header>
+    <p>Rorschach would say you have a hard time relating to others. Keep your mind limber. Tell him time is of the essence.</p>
+    <blockquote>
+        I'm going to tell you something that I've never told anyone before. I'm doing mental jumping jacks. Somehow, I doubt that. You have a good heart, Dexter.
+    </blockquote>
+    <p>I will not kill my sister. I will not kill my sister. I will not kill my sister. Like a sloth. I can do that. Pretend. You pretend the feelings are there, for the world, for the people around you. Who knows? Maybe one day they will be. Oh I beg to differ, I think we have a lot to discuss. After all, you are a client. Pretend. You pretend the feelings are there, for the world, for the people around you. Who knows? Maybe one day they will be.</p>
+    <p>I'm a sociopath; there's not much he can do for me. I like seafood. God created pudding, and then he rested.</p>
+</section>
+
+<!-- Section : Receiving A Task -->
+<section id="receiving-a-task">
+<header>
+    <h1>Receiving a task</h1>
+</header>
+
+<p>Tasks will be received as an email or note in AtTask. Select ‘Work on it’ to switch it to your active list. Once you have access to the project, download and view all related documents (PDFs, PSDs, and XLS). Once you have downloaded and reviewed the documents you should respond to the PM and ask any questions that aren’t answered in the docs. </p>
+</section>
+
+<!-- Section : Test Cases -->
+<section id="test-cases">
+<header>
+    <h1>Test Cases</h1>
+</header>
+
+<p>With documents in hand and post review of the documentation you can begin writing test cases. Test cases are a list of every testing scenario that should be run through in a round of end to end testing. There is a test case template to follow. Test cases are divided into 4 different tabs: <strong>Functional, Creative, Analytics,</strong> and <strong>Performance</strong>.</p>
+
+<p><strong>Functional</strong> test cases will cover a majority of your testing. Everything from hyperlinks to data captures will be in the functional section. You must think outside of the box and think of creative ways to break the site. Be as descriptive as possible because this will be shared internally and with the client.</p>
+
+<p><strong>Creative</strong> test cases will cover images and copy. This should be a very simple, general description of how to match the comps to the test site.</p>
+
+<p><strong>Analytics/Tracking</strong> will be based on the requirements documents sent over by the PM. These test cases are just to verify that the correct tracking information is in place.</p>
+
+<p><strong>Performance</strong> testing includes using simple tools that grade a website based on the structure of the code and response time. Tools such as <a href='http://developer.yahoo.com/yslow/' target="_blank">Yslow</a> and <a href='https://developers.google.com/speed/pagespeed/' target='_blank'>Pagespeed</a> are used in performance testing.</p>
+
+<p>The Functional and Creative test case tabs of the Excel spreadsheet will be split into different columns: Test Case ID, Description, Objective, Pre-Condition, Action, and Expected Result.</p>
+
+<ul>
+    <li><strong>Test Case ID</strong> is a unique number assigned to each line of the test cases. Ex. 1.00, 1.01, 1.02, etc.</li>
+    <li><strong>Description</strong> is a quick and short write-up of what will be tested.</li>
+    <li><strong>Objective</strong> is what the goal of the current test is.</li>
+    <li><strong>Pre-Condition</strong> is any condition that needs to be met before the line can be tested.</li>
+    <li><strong>Action</strong> is what needs to be done to complete the test—actual steps taken.</li>
+    <li><strong>Expected Result</strong> is what <i>should</i> happen at the end of the test.</li>
+</ul>
+
+<p>The test case line items of the Functional and Creative test case tabs of the Excel spreadsheet usually follow this format below, but they can vary at times according to the specific project being tested.</p>
+
+<ul>
+    <li><strong>Miscellaneous items</strong> – could be one-off tests:  Ex. an initial splash page to enter the site when first visiting the site. Only deleting cookies will show this splash again upon visiting the site.</li>
+    <li><strong>Global elements</strong> – same items that appear on all pages throughout the entire website.</li>
+    <li><strong>Age Gate testing</strong> (if applicable to the project) – All visitors to the site/page need to be of a specific age or older in order to enter the site—this is a legal requirement.  Ex. separate test cases for testing the day before, the day of, and the day after the supported age given to us by the client. Same test cases follow for the month and year.</li>
+    <li><strong>Cosmetics</strong> – includes compatibility testing on all supported browsers, mobiles, and tablets.</li>
+    <li><strong>Functionality</strong> – we refer to site wire frame(s) for functional test cases.</li>
+</ul>
+
+<p>For each/every page in the website being tested we create separate cosmetic test cases, functionality test cases, and tracking test cases on their respective and separate spreadsheet tabs.</p>
+
+<p>Refer to the test case template to get a feel for all the items discussed in this test case section of this guide. Once test cases are completed they should be sent to the QA Lead and the PM of the project to review and give feedback on. Once finalized, they should be uploaded to Attask and/or SVN.</p>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+
+<!-- Section : AtTask -->
+<section id="attask">
+<header>
+    <h1>AtTask</h1>
+</header>
+
+<p>This is the main defect tracker used by Studio projects. If you are asked to email issues or write them out on a spreadsheet, speak to your QA Lead.</p>
+
+<p>Once you begin testing and are ready to enter issues, open Attask and find the project you are working on. Select ‘New Issue’ and follow the format for entering new issues:</p>
+
+<ul>
+    <li><strong>Title</strong> – [Page] ‘Browser if specific’ – ‘Issue Title’</li>
+    <li><strong>Description</strong> – ‘Screenshot’ ‘Browser if specific’ - List steps by numbered order to recreate issue if it’s a complex issue or a detailed description for more minor issues.</li>
+    <li><strong>Assignee</strong> – Developer or Project Manager (depends on who takes responsibility for the issue)</li>
+    <li><strong>Status</strong> – <i>New</i> – This is the default for new issues to the Developer, or <i>Awaiting Feedback</i> – Default for new issues to Project Manager.  Once the issue is reassigned back to us for testing then depending on the result(s) of the testing the status will move to one of the following: <i>Reopen, Closed, Passed in test, Passed in UAT,</i> or <i>On hold.</i></li>
+</ul>
+
+<!-- Sub Heading : Begin -->
+<h4>Defect Life Cycle</h4>
+<ol type='a'>
+    <li>Issue reported (new)</li>
+    <li>Assigned to developer (open)</li>
+    <li>Fixed and developer sets as “Retest”</li>
+    <li>QA retests the issues</li>
+    <li>If item is fixed we “close” it; if item is not fixed we “open” it again and reassign it</li>
+</ol>
+
+<!-- Sub Heading : Begin -->
+<h4>Issue Priority Levels</h4>
+
+<p><strong>Priority 1:</strong> Functionally is broken, which prevents further testing. Examples: sign up page doesn’t load or submit button when clicked breaks the page. Also anything legal (like an age gate, compliance issue, terms and conditions) will always be P1.</p>
+
+<p><strong>Priority 2:</strong> Functionality works, but not as intended / Or a major creative issue. Example:  the sign up page loads the wrong page or broken page.</p>
+
+<p><strong>Priority 3:</strong> Regular cosmetic issue / Browser-specific minor functionality. Examples: images show in wrong place, or a form looks bad but it still works alright.</p>
+
+<p><strong>Priority 4:</strong> Copy issues / Minor cosmetic issues / alignment issues</p>
+
+<p><strong>Priority 5:</strong> Suggestions / Feedback</p>
+
+<p>Once an issue has been submitted you can make comments/updates as needed to the task.</p>
+
+<p><strong>Note :</strong>  Producers can also set priority levels for issues depending on the severity of the issue as they (or their clients) see fit. The priority list above is our QA standard list of priorities where a Producer has not yet intervened on a specific issue(s).</p>
+
+<p>When an issue has been assigned back to QA as ‘Retest’, there are a few different options to select.</p>
+
+<ul>
+    <li>If the issue is fixed you should mark it as closed. If an issue is not fixed you will reopen it and make a comment if there are any updates.</li>
+    <li>If an issue is closed on the QA environment, but reappears on the UAT environment you will need to reopen the issue and make a note that it only happens on UAT.</li>
+    <li>If the issue is closed on QA, but reappears slightly different on UAT you will need to open a new issue at that point since it’s not the very same issue.</li>
+    <li>Depending on the project you will need to use different statuses. Some require issues to be checked on each environment. In this case you will use ‘Passed in Test’/’Passed in UAT’ when an issue is closed.</li>
+    <li>‘On hold’ should be used when an issue can’t be tested because it is blocked from being tested by another issue.</li>
+    <li>An issue can be deferred by the PM for any reason, and it is then up to the QA tester to close the deferred issue.</li>
+    <li>If for any reason duplicate issues exist, the QA tester will need to close one of them and remove it from the open issues list.</li>
+</ul>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+
+<!-- Section : Tsting Reference -->
+<section id="testing-reference">
+<header>
+    <h1>Testing reference (QA Responsibilities)</h1>
+</header>
+
+<ol type='a'>
+    <li>Test cases creation.</li>
+    <li><strong>Smoke testing vs. Sanity testing:</strong></li>
+        <ul>
+            <li>When smoke testing one basically asks himself is the site QA test worthy?  Once a build gets pushed to QA environment for testing you run quickly through the core components of the site to ensure they are functionally sound—if they are then continue testing; if they aren’t then immediately the site should go back to the developer for further and proper coding. <br><strong>An example:</strong> if the Developer completes his coding and the job is then passed on to QA for us to start testing and we begin by testing the Age Gate of a sweepstakes site and the core functionality of the Age gate is broken, wherein it doesn’t work or won’t submit then we immediately send it back to the coder as the site is not QA worthy of testing yet.</li>
+            <li>When running a Sanity test we are ensuring that everything appears exactly the same from one environment to the next environment.<br>
+                <strong>For example:</strong> if testing has been completed on the QA environment and the site build was pushed to UAT we then do a Sanity test to ensure that everything on UAT is matching exactly as that of QA (since the QA environment was already approved and passed testing). If UAT doesn’t match with QA then it fails the Sanity test.</li>
+        </ul>
+    <li><strong>Creative QA:</strong> proofreading, alignment issues, image issues, comparing creative comps against actual creative, etc.</li>
+    <li><strong>Creative QA cross-browser testing:</strong> same as above but on all supported browsers.</li>
+    <li><strong>Functional QA:</strong> clicking links and ensuring they target to the correct location, age gate functionality works correctly, Call-to-action buttons target correctly, authentication fields submit correctly, data capture fields work correctly, data capture fields capture correct information in the database, navigation links target correctly, captchas work correctly, overlays and popups work correctly; every link on every page needs verification.</li>
+    <li><strong>Functional QA cross-browser testing:</strong> same as above but on all supported browsers.</li>
+    <li><strong>Tracking (analytics):</strong></li>
+        <ul>
+            <li>Keeps a record of how many visits to the site. Pixels that are put on tags that fire in the Headers of the site and give information like: what Operating System the user is on, screen resolution the user is using, the browser they’re using.  Verify the tags fire correctly and send off the report to the Developer and Account person.</li>
+            <li>2 ways of tracking analytics:  upon load of the page and/or on click of any link</li>
+            <li>3 items to check on tracking</li>
+                <ul>
+                    <li>UA Codes: Google analytics identifier (specific number)</li>
+                    <li>Name or title of the tag</li>
+                    <li>Correct name of the website page that the tracking came from</li>
+                </ul>
+            <li>Tracking tools we use most often are Charles and Google Analytics. Use Firefox as the tracking default to work with Charles.</li>
+        </ul>
+    <li><strong>Issues reporting:</strong> every bug/defect found is entered into the defect tracker (either @task, Jira, or ResultSpace 3, wherever the project details are set up).  We assign the defects to the coder so they can make fixes. Refer to the Defect Lifecycle and the @task section above on how the defect priorities are arranged. After each full round of testing the QA engineer should send out a quick summary email of that round’s testing results to all involved on the job—QA Lead, Producer, Developer, etc.</li>
+    <li><strong>Issues retesting:</strong> once the defects have been fixed and reassigned back to QA we perform another retest to ensure the defect has in fact been fixed.  If it has been fixed we close out the defect. If it hasn’t been fixed we reassign back to the developer again.</li>
+    <li><strong>Regression retesting:</strong> When QA environment testing is complete (all issues have been fixed by the coder and verified by QA as fixed) and the build is ready to go to UAT (or Preview environment) this is when QA performs a regression site on the QA environment by running through every test case one last time before the site gets pushed to UAT. We also perform regression testing on the Live environment.</li>
+    <li><strong>Sanity testing on UAT and Production:</strong> refer to step b. above.</li>
+    <li><strong>Post-production QA support:</strong> if requested by the Account team.</li>
+</ol>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+
+
+<!-- Section : Environments -->
+<section id="environments">
+<header>
+    <h1>Environments</h1>
+</header>
+
+<ol type='a'>
+    <li>Local SVN project gets pushed by the developer up to the Development environment</li>
+    <li>The Build team pushes the project files from Dev up to the QA environment</li>
+    <li>File/site path:  Dev > QA > UAT or Preview > Production</li>    
+</ol>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+
+<!-- Section : QA Default Brrowsers -->
+<section id="qa-default-browsers">
+<header>
+    <h1>QA Default browsers</h1>
+</header>
+
+<ol type='a'>
+    <li>IE 8,9 on Win XP &amp; Win7</li>
+    <li>FF Latest version on Win XP &amp; Win7</li>
+    <li>Chrome Latest Version on Win XP &amp; Win7</li>
+    <li>Safari Latest version on MAC</li>
+</ol>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+
+<!-- Section : QA Tablets & Mobile Devices -->
+<section id="qa-tablets-mobile-devices">
+<header>
+    <h1>QA Tablets &amp; Mobile Devices</h1>
+</header>
+
+<ol type='a'>
+    <li>Nexus 10 tablet</li>
+    <li>Windows Surface RT tablet</li>
+    <li>iPad 2 tablet</li>
+    <li>Blackberry Z10 mobile</li>
+    <li>iPhone 4</li>
+    <li>iPhone 5</li>
+    <li>Samsung Galaxy SII</li>
+</ol>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+
+<!-- Section : Types of Pages -->
+<section id="types-of-pages">
+<header>
+    <h1>Types of Pages</h1>
+</header>
+
+<p>There are different types of pages that we test and each has its own items that need to be tested. Sweepstakes, Data Capture, Facebook Apps, Landing Pages, Redesigns, Responsive, and Mobile are the different types, and the items to be tested on each individual type are:</p>
+
+<ul>
+    <li><strong>Sweepstakes</strong> – Age Gates will have a specific date to be tested. You should also test the year before, year of, year after and day before, day of, and day after. State restrictions should be tested when applicable. Valid dates need to be checked (2/31/00, 9/31/00) to ensure they don’t work. Business rules should also be verified for the age gate.</li>
+    <li><strong>Data captures</strong> – They come in two different types: contact us forms and a registration form. There need to be standards for data captures such as character limits and restrictions on fields. After a form is submitted the information must be verified in a database. Submission rules must be verified such as required fields. Attempt to generate server errors by submitting the form with incorrect information. A security scan must be scheduled to scan any sweepstakes or site with data captures. The proper form must be filled out and emailed to <a href="mailto:GSO-STAR@sapient.com">GSO-STAR@sapient.com</a></li>
+    <li><strong>Facebook Apps</strong> – These apps can also include a sweeps aspect. There will be a like gate, permissions page, shares/wall posts, and redirects (if someone tries accessing the page without liking it first).</li>
+    <li><strong>Landing Pages</strong> – This should be a simple page containing links/CTAs and creative testing (alignment, copy, alt tags, font, rollovers, and overlays).</li>
+    <li><strong>Site Redesigns</strong> – Similar testing as Landing Pages, but more total pages.</li>
+    <li><strong>Responsive sites</strong> – 1 page that changes layout based on a specific viewport (mobile, portrait tablet, landscape tablet, and desktop).</li>
+    <li><strong>Mobile</strong> – Checking redirects, accessible vs. optimization, and application vs. site. If it is a mobile app in addition to regular testing you will need to test installing and upgrading the app. Regular sites only need standard QA.</li>
+</ul>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+</section>
+
+</div>
+</div>
+</div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/common/lib/prettify/prettify.js"></script>
+    <script src="/common/lib/prettify/lang/lang-css.js"></script>
+    <script src="/common/js/bootstrap-transition.js"></script>
+    <script src="/common/js/bootstrap-affix.js"></script>
+    <script src="/common/js/bootstrap-scrollspy.js"></script>
+    <script src="/common/js/bootstrap-collapse.js"></script>
+    <script src="/common/js/global.js"></script>
+</body>
+</html>
