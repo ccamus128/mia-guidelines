@@ -259,6 +259,20 @@ section img {
 .option-list strong {
   color: #46a546;
 }
+.option-list span {
+  background: url(/common/img/buttons.png) no-repeat;
+  display: block;
+  width: 20px;
+  height: 20px;
+  text-indent: -9999px;
+  margin-left:2%;
+}
+.option-list span.true {
+  background-position: 0 0;
+}
+.option-list span.false {
+  background-position: -23px 0;
+}
 /* 2 Column List
 ---------------------------------------------*/
 .list-2col li {

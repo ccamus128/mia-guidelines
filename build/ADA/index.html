@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Email Development Guidelines</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no;">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/common/css/bootstrap.css">
+    <link rel="stylesheet" href="/common/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="/common/lib/prettify/prettify.css">
+    <link rel="stylesheet" href="/common/css/global.css">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/common/img/icons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/common/img/icons/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/common/img/icons/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/common/img/icons/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/common/img/icons/apple-touch-icon-57-precomposed.png">
+</head>
+<body data-spy="scroll" data-target=".sd-sidenav-outer" data-offset="125" id="top">
+<nav class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <span class="sn-logo"></span>
+            <div class="nav-collapse visible-phone">
+                <ul class="nav sd-topnav-inner">
+                </ul>
+            </div>
+            <span class="last-updated hidden-phone">Last Updated: 11.27.2013</span>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</nav>
+<header class="hero">
+    <div class="container hero-inner">
+        <h1>Miami</h1>
+        <h4>Email Development Guidelines</h4>
+    </div>
+</header>
+<div class="container page-content">
+<div class="row">
+<div class="span3 sd-sidenav-outer visible-desktop visible-tablet">
+    <ul class="nav nav-list sd-sidenav-inner">
+        <li><a href="#top">Introduction <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#building-blocks">Email Building Blocks <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#stylesheets">CSS <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#tables">Tables <i class="icon-chevron-right"></i></a></li>
+        <li><a href="#fonts">Fonts <i class="icon-chevron-right"></i></a></li>
+
+    </ul>
+</div>
+<div class="span9 section-container">
+
+<section id="intro">
+<header>
+    <h1>Introduction</h1>
+</header>
+<p>Before getting into the details, there are some uncomfortable facts that those new to HTML email should be aware of. Building an email is not like building for the web. While web browsers continue their onward march towards standards, many email clients have stubbornly stayed put. Some have even gone backwards. In 2007, Microsoft switched the Outlook rendering engine from Internet Explorer to Word. Yes, as in the word processor. Add to this the quirks of the major web-based email clients like Gmail and Hotmail, sprinkle in a little Lotus Notes and you'll soon realize how different the email game is. </p>
+
+<p>While it's not without its challenges, rest assured it can be done. In my experience the key is to focus on three things. First, you should keep it simple. The more complex your email design, the more likely is it to choke on one of the popular clients with poor standards support. Second, you need to take your coding skills back a good decade. That often means nesting tables, bringing CSS inline and following the coding guidelines I'll outline below. Finally, you need to test your designs regularly. Just because a template looks nice in Hotmail now, doesn't mean it will next week.</p>
+</section>
+
+
+<!-- Section : building blocks -->
+<section id="building-blocks">
+<header>
+    <h1>Email Building Blocks</h1>
+</header>
+
+<!-- Sub Heading : Begin -->
+<h3>There are two key building blocks for an html email</h3>
+
+<ul>
+    <li>HTML tables control the design layout and some presentation, for example, background images. </li>
+    <li>Inline CSS controls presentation, for example, colors for backgrounds and fonts</li>
+</ul>
+
+<p>The quickest and easiest way to see how HTML tables and inline CSS interact within an HTML email is to download our template from <a href="template.zip">here</a>.</p>
+
+<p>When you open up the template, you will notice several things:</p>
+
+<ul>
+    <li>There is no CSS style declarations appear below or above the BODY tag. </li>
+    <li>If a template has CSS declarations above/below the BODY tag, it's simply a convenience: the email delivery service moves these declarations down to inline styles as part of their email delivery process or discards them.</li>
+</ul>
+
+<p>No CSS shorthand is used: instead of <code>font: 12px/16px Arial, Helvetica</code> break this shorthand into its components of <code>font-family</code>, <code>font-size</code>, and <code>line-height</code>.</p>
+
+<p>SPANs and DIVs are used sparingly to achieve specific effects while HTML tables do the bulk of the layout work.
+CSS style declarations are basic with no hacks required. That's CSS1 and CSS2, not CSS3 (yet).</p>
+
+<p>The use of background-images is not allowed. Most Email clients will not display them. </p>
+
+<p>When you receive an interesting email — maybe it has a great design or does something unusual, be sure to save it to your computer as a text file then open the file with any HTML editor. It should be fairly easy to see how the email code is structured and learn from the experience. Even saving email from Outlook, which adds a ton of (spurious, in my view) code, can be easy to figure out if you're persistent.</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Paragraphs</h3>
+
+<p>Just like table cell spacing, paragraph spacing can be tricky to get a consistent result across the board. I've seen many designers revert to using double <code>&lt;br&gt;</code> or <code>&lt;div&gt;</code> with inline CSS margins to work around these shortfalls, but recent testing showed that paragraph support is now reliable enough to use in most cases (there was a time when Yahoo! didn't support the paragraph tag at all). The best approach is to set the margin inline via CSS for every paragraph in your email, like so:</p>
+
+<pre>
+&lt;p style="margin-top:0; margin-right:0; margin-bottom:5px; margin-left:0;"&gt;...&lt;/p&gt;
+</pre>
+
+<p>If part of your design is height-sensitive and calls for pixel perfection, I recommend avoiding paragraphs altogether and setting the text formatting inline in the table cell. You might need to use table nesting or cellpadding / CSS to get the desired result. Here's an example:</p>
+
+<pre>
+&lt;td width="200" style="font-size:1em; line-height:1.2em; font-family:georgia,times,serif;"&gt;...&lt;/td&gt;
+</pre>
+
+
+<!-- Sub Heading : Begin -->
+<h3>Links</h3>
+
+<p>Some email clients will overwrite your link colors with their defaults. You can avoid this by taking two steps. First, set a default color for each link inline like so:</p>
+
+<pre>
+&lt;a href="#" target=”_blank” style="color:#ff00ff">this is a link&lt;/a&gt;
+</pre>
+
+<p>Next, add a redundant span inside the a tag.</p>
+
+<pre>
+&lt;a href="#" target=”_blank” style="color:#ff00ff"&gt;
+    &lt;span style=”color:#ff00ff”>this is a link&lt;/span&gt;
+&lt;/a&gt;
+</pre>
+
+<p>To some this may be overkill, but if link color is important to your design then a superfluous span is the best way to achieve consistency.</p>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+
+</section>
+
+<!-- Section : CSS -->
+<section id="stylesheets">
+<header>
+    <h1>CSS</h1>
+</header>
+
+<!-- Sub Heading : Begin -->
+<h3>CSS Reset</h3>
+
+<p>This snippet resets formatting issues with several clients including Outlook, Hotmail, and Gmail. It also includes a sweet fix for some smart phone clients where font sizes are increased to break your layout.</p>
+
+    
+<pre class="lang-css prettyprint">
+#outlook a {
+    padding: 0;
+} 
+body {
+    width: 100% !important;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+}
+.ExternalClass {
+    width: 100%;
+} 
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+    line-height: 100%;
+} 
+#backgroundTable {
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+    line-height: 100% !important;
+}
+table, td {
+    border-collapse: collapse;
+    mso-table-lspace: 0pt;
+    mso-table-rspace: 0pt;
+}
+img {
+    border:0 none;
+    height:auto;
+    line-height:100%;
+    outline:none;
+    text-decoration:none;
+    -ms-interpolation-mode: bicubic;
+}
+a img {
+    border:0 none;
+}
+</pre>
+
+<!-- Sub Heading : Begin -->
+<h3>Always move your CSS inline</h3>
+
+<p>Gmail is the culprit for this one. By stripping the CSS from the <code>head</code> and <code>body</code> of any email, we're left with no choice but to move all CSS inline. </p>
+
+<p>A number of email clients reject CSS shorthand for the font property. For example, never set your font styles like this:</p>
+
+<!-- Sub Heading : Begin -->
+<h3>Avoid shorthand for fonts and hex notation</h3>
+
+<pre class="lang-css bad">
+font style="font:bold 1em/1.2em georgia,times,serif;"
+</pre>
+
+<p>Instead, declare the properties individually like this.</p>
+
+<pre class="lang-css good">
+font style="font-weight:bold; font-size:12px; line-height:1.2em; font-family; georgio, times, serif;"
+</pre>
+
+<!-- Sub Heading : Begin -->
+<h3>Don't use floats</h3>
+
+<p>Both Outlook 2007 and earlier versions of Notes offer no support for the float property. Instead, use the align attribute of the img tag to float images in your email.</p>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+
+</section>
+
+<!-- Section : tables -->
+<section id="tables">
+<header>
+    <h1>Tables</h1>
+</header>
+
+<p>Determining the layout design is the first step in coding an html email. Single column and two-column layouts work best for emails because they control the natural chaos that results when a lot of content is pushed into such a small space as email. </p>
+
+<blockquote>Note: Email width should not exceed <strong>600px</strong> – anything larger will create a scrollbar in some email clients.</blockquote>
+
+<ul>
+    <li>With a one column layout, typically there is a header that contains a logo and some (or all) navigation links from the parent website. Below that are any intra-email links to stories further down in the email. At the bottom of one column layouts are the footer (often with links that repeat the top navigation) and detailed unsubscribe instructions.</li>
+    <li>Two-column email layouts also use a header and footer. They also typically use a narrow side column to contain features and links to more information. The wider column holds the main content of the email.</li>
+    <li>Promotional emails follow the same rules but with much less content and links. They often include one to two messages and sometimes one big image with small explanatory text and links below the image. </li>
+</ul>
+
+<p>While this approach might offend purists who prefer to code to the latest standards, coding an HTML email is not coding a web page. They are two different beasts. The software used to view email differs. Most web browser software today, for example, display web pages the same way. That’s not the case with email software even though many email software clients use web browsers to render their HTML.</p>
+
+<p>To give one example, Outlook 2003 used IE7/8 web browser software to render HTML which is mostly standards compliant. With Outlook 2007/2010, however, the rendering engine switched to Microsoft Word’s HTML rendering engine which is comparatively less compliant. Coding HTML email has to account for these differences over time.</p>     
+
+<!-- Sub Heading : Begin -->
+<h3>Nesting Tables</h3>
+
+<p>Table nesting is far more reliable than setting left and right margins or padding for table cells. If you can achieve the same effect by table nesting, that will always give you the best result across the buggier email clients. Use a container table for body background colors Many email clients ignore background colors specified in your CSS or the <code>body</code> tag. To work around this, wrap your entire email with a 100% width table and give that a background color. </p>
+    
+<p>Avoid unnecessary whitespace in table cells where possible; avoid whitespace between your <code>td</code> tags. Some email clients (Yahoo! and Hotmail) can add additional padding above or below the cell contents in some scenarios, breaking your design for no apparent reason.</p>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+
+</section>
+
+
+<!-- Section : fonts -->
+<section id="fonts">
+<header>
+    <h1>Fonts</h1>
+</header>
+
+<h3>Web-Safe Fonts</h3>
+
+<p>@font-face is only acceptable in Apple's Mail.app and the Mail app on iOS. Every other client does not support @font-face.  This means that you will have to use web safe fonts to code your email.  If the creative PSD/PNG has a custom font, please reach out to the Account team with the list of web safe fonts that are acceptable.</p>
+
+
+<table class="option-list">
+    <thead>
+    <tr>
+        <th style="width:35%;">Font-Family</th>
+        <th style="padding-left:2%;">Example Text</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Georgia, serif</td>
+        <td><h4 style="margin-top:0px; font-family: Georgia, serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: Georgia, serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>"Palatino Linotype", "Book Antiqua", Palatino, serif</td>
+        <td><h4 style="margin-top:0px; font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>"Times New Roman", Times, serif</td>
+        <td><h4 style="margin-top:0px; font-family: 'Times New Roman', Times, serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: 'Times New Roman', Times, serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Arial, Helvetica, sans-serif</td>
+        <td><h4 style="margin-top:0px; font-family: Arial, Helvetica, sans-serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: Arial, Helvetica, sans-serif; padding-left:2%;">This is a paragraph</p></td>
+    </tr>
+    <tr>
+        <td>"Arial Black", Gadget, sans-serif</td>
+        <td><h4 style="margin-top:0px; font-family: Arial Black, Gadget, sans-serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: Arial Black, Gadget, sans-serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>"Comic Sans MS", cursive, sans-serif</td>
+        <td><h4 style="margin-top:0px; font-family: 'Comic Sans MS', cursive, sans-serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: 'Comic Sans MS', cursive, sans-serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Impact, Charcoal, sans-serif</td>
+        <td><h4 style="margin-top:0px; font-family: Impact, Charcoal, sans-serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: Impact, Charcoal, sans-serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>"Lucida Sans Unicode", "Lucida Grande", sans-serif</td>
+        <td><h4 style="margin-top:0px; font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Tahoma, Geneva, sans-serif</td>
+        <td><h4 style="margin-top:0px; font-family: Tahoma, Geneva, sans-serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: Tahoma, Geneva, sans-serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>"Trebuchet MS", Helvetica, sans-serif</td>
+        <td><h4 style="margin-top:0px; font-family: 'Trebuchet MS', Helvetica, sans-serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: 'Trebuchet MS', Helvetica, sans-serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Verdana, Geneva, sans-serif</td>
+        <td><h4 style="margin-top:0px; font-family: Verdana, Geneva, sans-serif; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: Verdana, Geneva, sans-serif; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>"Courier New", Courier, monospace</td>
+        <td><h4 style="margin-top:0px; font-family: 'Courier New', Courier, monospace; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px; font-family: 'Courier New', Courier, monospace; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    <tr>
+        <td>"Lucida Console", Monaco, monospace</td>
+        <td><h4 style="margin-top:0px;font-family: 'Lucida Console', Monaco, monospace; padding-left:2%;">This is a heading</h4>
+            <p style="margin-bottom:0px;font-family: 'Lucida Console', Monaco, monospace; padding-left:2%;">This is a paragraph</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<p>While we're on the topic of fonts, I recently tested every conceivable variation of <code>@font-face</code> across the major email clients. The results were dismal, so unfortunately it's web-safe fonts in email for the foreseeable future. </p>
+
+<p>When declaring the color property in your CSS, some email clients don't support shorthand hexadecimal colors like <code>color:#f60;</code> instead of <code>color:#ff6600;</code>. Stick to the longhand approach for the best results. </p>
+
+<footer>
+    <a href="#top" title="Back to top"><span class="hidden-phone">Back to top</span> <i class="icon-chevron-up"></i></a>
+</footer>
+
+</section>
+
+</div>
+</div>
+</div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/common/lib/prettify/prettify.js"></script>
+    <script src="/common/lib/prettify/lang/lang-css.js"></script>
+    <script src="/common/js/bootstrap-transition.js"></script>
+    <script src="/common/js/bootstrap-affix.js"></script>
+    <script src="/common/js/bootstrap-scrollspy.js"></script>
+    <script src="/common/js/bootstrap-collapse.js"></script>
+    <script src="/common/js/global.js"></script>
+</body>
+</html>
